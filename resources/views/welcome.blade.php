@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="/ilustration_landing_page.webp" alt="hero image">
+                <img src="{{ asset('ilustration_landing_page.webp') }}" alt="hero image">
             </div>                
         </div>
     </section>
