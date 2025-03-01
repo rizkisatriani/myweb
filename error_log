@@ -1,0 +1,2 @@
+[26-Nov-2024 14:15:39 UTC] PHP Fatal error:  Cannot use PhpOffice\PhpPresentation\IOFactory as IOFactory because the name is already in use in /home/tooj2156/public_html/app/Http/Controllers/DocConvertController.php on line 8
+[26-Nov-2024 15:38:26 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\DocConvertController::convertWordToHtml() in /home/tooj2156/public_html/app/Http/Controllers/DocConvertController.php on line 88
