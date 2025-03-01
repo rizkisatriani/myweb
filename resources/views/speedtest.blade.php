@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="canonical" href="https://toolsborg.com/landwind/" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolsborg | Internet Speed Test</title>
+@extends('layouts.app')
 
-    <!-- Meta SEO -->
-    <meta name="title" content="Internet Speed Test">
-    <meta name="description" content="Test your internet speed with our free and simple speed test tool. Measure download and upload speeds instantly.">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="author" content="Toolsborg">
+@section('title', 'Adsdigi | Homepage')
 
-    <!-- Tailwind CSS -->
-    <link href="./output.css" rel="stylesheet">
+@section('content') 
 
-    <!-- Script -->
-    <script>
+<script>
       document.addEventListener('DOMContentLoaded', () => {
     const startTestButton = document.getElementById('start-test');
     const resultsDiv = document.getElementById('results');
@@ -181,9 +167,6 @@
         }
 
     </style>
-</head>
-<body class="bg-gray-100">
-    <?php include 'components/topnav.php'; ?> 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <section class="bg-white dark:bg-gray-900">
     <div class="max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
@@ -303,6 +286,5 @@
         </div>
     </div>
 </section>
-    <?php include 'components/footer.php'; ?>
-</body>
-</html>
+
+@endsection
