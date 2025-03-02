@@ -103,7 +103,7 @@
 
                     <!-- Convert Button (hidden initially) -->
                     <form id="uploadForm" action="{{ url($actionUrl) }}" method="POST" enctype="multipart/form-data"
-                        class="space-y-6 flex justify-center pt-20">
+                        class="space-y-6 flex justify-center pt-2">
                         @csrf
                         <input type="file" name="file" id="file-upload" class="hidden" required />
                         <button id="convert-button"

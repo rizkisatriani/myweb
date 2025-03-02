@@ -101,7 +101,7 @@
                     </div>
 
                     <!-- Convert Button (hidden initially) -->
-                    <form action="{{ url($actionUrl) }}" method="POST" enctype="multipart/form-data" class="space-y-6 flex justify-center pt-20">
+                    <form action="{{ url($actionUrl) }}" method="POST" enctype="multipart/form-data" class="space-y-6 flex justify-center pt-6">
                         @csrf
                         <input type="file" name="image" id="file-upload" class="hidden" required />
                         <button id="convert-button"

@@ -118,7 +118,12 @@ Route::post('convert-jpg-to-png', [ImageToPdfController::class, 'convertJpgToPng
 Route::post('/convert-word-to-pdf', [DocConvertController::class, 'convertWordToPdf']);
 Route::post('/convert-ppt-to-pdf', [DocConvertController::class, 'convertPptToPdf']);
 Route::get('/speed-test-internet', function () {
-    return view('speedtest');
+    return view('speedtest', [
+        'breadCrumb' => 'Test Speed Internet',
+        'title' => 'Test Speed Internet for free',
+        'subtitle' => 'Manage your image files better and save on storage space by converting PPT/PPTX files to PPT/PPTX. Use our free WORD to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'actionUrl' => 'convert-ppt-to-pdf',
+    ]);
 });
 Route::get('/dummy-data', function () {
     $filename = 'dummy-file.txt';
