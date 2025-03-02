@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="<?= asset('css/output.css'); ?>">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <meta name="google-site-verification" content="-dM_qQnrtpcnhZSfeDBgaavV4RQt8DkPuVJV0BvEHWs" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9168454602694889"
+     crossorigin="anonymous"></script>
 </head>
 <body>
     @include('components.topnav') <!-- Navigasi -->
