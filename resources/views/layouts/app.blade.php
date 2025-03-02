@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toolsborg Tools Online Center</title>
+    <title>Toolsborg | {{ $title }}</title>
 
     <!-- Meta SEO -->
-    <meta name="title" content="Toolsborg Tools Online Center">
-    <meta name="description" content="Toolsborg Tools Online Center.">
+    <meta name="title" content="{{ $title }}">
+    <meta name="description" content="{{ $subtitle }}">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
     <meta name="author" content="Themesberg">
 
     <!-- Social media share -->
-    <meta property="og:title" content=Landwind - Tailwind CSS Landing Page>
-    <meta property="og:site_name" content="Toolsborg Tools Online Center">
-    <meta property="og:url" content=https://toolsborg.com/>
-    <meta property="og:description" content="Toolsborg Tools Online Center">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:site_name" content=Themesberg>
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:description" content="{{ $subtitle }}">
     <meta property="og:type" content="">
     <meta property="og:image" content=https://themesberg.s3.us-east-2.amazonaws.com/public/github/landwind/og-image.png>
     <meta name="twitter:card" content="summary" />

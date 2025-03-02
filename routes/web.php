@@ -40,7 +40,12 @@ Route::get('/generate-sitemap', function () {
     return response()->download(public_path('sitemap.xml'));
 });
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'breadCrumb' => 'Toolsborg Tools Online Center',
+        'title' => 'Toolsborg Tools Online Center',
+        'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'actionUrl' => 'convert-png-to-jpg',
+    ]);
 });
 
 Route::get('/convert-jpg-to-pdf', function () {
