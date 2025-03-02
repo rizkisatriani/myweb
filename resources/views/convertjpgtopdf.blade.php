@@ -20,6 +20,58 @@
                 <div class="absolute bottom-0 right-0 w-20 h-20 bg-purple-300 rounded-full transform translate-x-4 translate-y-4"></div>
 
                 <!-- Content -->
+                <style>
+                    /* Dropzone styling */
+                    #dropZoneArea {
+                        border: 2px dashed #ccc;
+                        padding: 20px;
+                        text-align: center;
+                        border-radius: 10px;
+                        transition: all 0.3s ease-in-out;
+                        font-size: 16px;
+                        color: #666;
+                        background-color: #f9f9f9;
+                        position: relative;
+                        margin-top: 30px;
+                    }
+
+                    /* Drop indicator when dragging over */
+                    #dropZoneArea.highlight {
+                        border-color: #4a90e2;
+                        background-color: #e3f2fd;
+                        color: #4a90e2;
+                        animation: pulse 1s infinite;
+                    }
+
+                    /* Dashed border animation */
+                    @keyframes pulse {
+                        0% {
+                            border-color: #4a90e2;
+                        }
+
+                        50% {
+                            border-color: #72b8ff;
+                        }
+
+                        100% {
+                            border-color: #4a90e2;
+                        }
+                    }
+
+                    /* Image preview styling */
+                    #imgContainer {
+                        display: none;
+                        text-align: center;
+                        margin-top: 20px;
+                    }
+
+                    #imgPreview {
+                        max-width: 300px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    }
+                </style>
+
                 <div class="relative z-10 bg-white rounded-xl p-6">
                     <h1 class="text-3xl font-extrabold text-gray-800 text-center mb-4">{{ $title }}</h1>
                     <p class="text-gray-500 text-center mb-6">
@@ -35,27 +87,31 @@
                             </svg>
                             Upload your image
                         </label>
-                        <input id="file-upload" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)" />
+                        <!-- <input id="file-upload" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)" /> -->
                     </div>
 
-                    <!-- Dropzone Text -->
-                    <p id="text-drop" class="text-gray-500 text-center mt-4">or drop it here</p>
-                    <div class="flex justify-center" id="imgContainer" style="display: none;">
-                        <img src="" alt="Preview" id="imgPreview" style="width: 300px; ">
+                    <!-- Dropzone Area -->
+                    <div id="dropZoneArea">
+                        Drag & Drop File Here
                     </div>
+
+                    <!-- Image Preview -->
+                    <div class="flex justify-center mt-4" id="imgContainer">
+                        <img src="" alt="Preview" id="imgPreview">
+                    </div>
+
                     <!-- Convert Button (hidden initially) -->
                     <form action="{{ url($actionUrl) }}" method="POST" enctype="multipart/form-data" class="space-y-6 flex justify-center pt-20">
                         @csrf
-                        <input type="file" name="image" id="selected-file" class="hidden" required />
+                        <input type="file" name="image" id="file-upload" class="hidden" required />
                         <button id="convert-button"
                             class="cursor-pointer inline-flex items-center px-5 py-8 bg-purple-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
                             type="submit" style="display:none;">
-                            <!-- <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-                            </svg> -->
                             Convert File Now
                         </button>
                     </form>
+
+                    <!-- Error Handling -->
                     @if ($errors->any())
                     <div class="bg-red-100 text-red-700 border border-red-400 rounded p-4 mb-4">
                         <strong class="block font-medium">Error!</strong>
@@ -67,6 +123,98 @@
                     </div>
                     @endif
                 </div>
+
+                <script>
+                    const fileInput = document.getElementById("file-upload");
+                    const dropZone = document.getElementById("dropZoneArea");
+                    const imgPreview = document.getElementById("imgPreview");
+                    const imgContainer = document.getElementById("imgContainer");
+                    const convertButton = document.getElementById("convert-button");
+                    // const selectedFileInput = document.getElementById("selected-file");
+                    // const fileInput = event.target;
+                    // const convertButton = document.getElementById('convert-button');
+                    const selectedFileInput = document.getElementById('file-upload');
+                    const selectFile = document.getElementById('selectFile');
+                    const textDrop = document.getElementById('dropZoneArea');
+                    // const imgPreview = document.getElementById('imgPreview');
+                    // const imgContainer = document.getElementById('imgContainer');
+
+                    function handleFile(file) {
+                        if (file && file.type.startsWith("image/")) {
+                            // convertButton.style.display = 'inline-flex';
+                            selectedFileInput.files = fileInput.files;
+                            selectFile.style.display = 'none'
+                            textDrop.style.display = 'none'
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                // imgPreview.src = e.target.result;
+                                // imgContainer.style.display = "block";
+                                convertButton.style.display = "inline-flex";
+
+                                imgContainer.style.display = 'flex'
+                                imgPreview.src = e.target.result;
+                            };
+                            reader.readAsDataURL(file);
+
+                            // Set file for form submission
+                            const dataTransfer = new DataTransfer();
+                            dataTransfer.items.add(file);
+                            fileInput.files = dataTransfer.files;
+                            selectedFileInput.files = dataTransfer.files;
+                        } else {
+                            convertButton.style.display = 'none';
+                            imgContainer.style.display = 'none'
+                            selectFile.style.display = 'inline-flex'
+                            textDrop.style.display = 'inline-flex'
+                        }
+                    }
+
+                    function handleFileSelect(event) {
+                        const file = event.target.files[0];
+                        handleFile(file);
+                    }
+
+                    // Drag & Drop Functionality
+                    // function handleFileSelect(event) {
+
+                    //     if (fileInput.files.length > 0) {
+                    //         // Show the Convert button
+
+                    //         const file = event.target.files[0];
+                    //         const reader = new FileReader();
+                    //         reader.onload = function(e) {
+                    //         };
+                    //         reader.readAsDataURL(file);
+                    //     } else {
+                    //         convertButton.style.display = 'none';
+                    //         imgContainer.style.display = 'none'
+                    //         selectFile.style.display = 'inline-flex'
+                    //         textDrop.style.display = 'inline-flex'
+                    //     }
+                    // }
+                    ["dragenter", "dragover"].forEach(eventName => {
+                        dropZone.addEventListener(eventName, (e) => {
+                            e.preventDefault();
+                            dropZone.classList.add("highlight");
+                        });
+                    });
+
+                    ["dragleave", "drop"].forEach(eventName => {
+                        dropZone.addEventListener(eventName, (e) => {
+                            e.preventDefault();
+                            dropZone.classList.remove("highlight");
+                        });
+                    });
+
+                    dropZone.addEventListener("drop", function(event) {
+                        event.preventDefault();
+                        const file = event.dataTransfer.files[0];
+                        handleFile(file);
+                    });
+
+                    fileInput.addEventListener("change", handleFileSelect);
+                </script>
+
             </div>
         </div>
     </div>
@@ -102,35 +250,7 @@
 </section>
 <script>
     // Function to handle file selection
-    function handleFileSelect(event) {
-        const fileInput = event.target;
-        const convertButton = document.getElementById('convert-button');
-        const selectedFileInput = document.getElementById('selected-file');
-        const selectFile = document.getElementById('selectFile');
-        const textDrop = document.getElementById('text-drop');
-        const imgPreview = document.getElementById('imgPreview');
-        const imgContainer = document.getElementById('imgContainer');
 
-        if (fileInput.files.length > 0) {
-            // Show the Convert button
-            convertButton.style.display = 'inline-flex';
-            selectedFileInput.files = fileInput.files; // Attach the selected file to the hidden form input
-            selectFile.style.display = 'none'
-            textDrop.style.display = 'none'
-            const file = event.target.files[0];
-            const reader = new FileReader();
-            reader.onload = function(e) {
-            imgContainer.style.display = 'flex'
-                imgPreview.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            convertButton.style.display = 'none';
-            imgContainer.style.display = 'none'
-            selectFile.style.display = 'inline-flex'
-            textDrop.style.display = 'inline-flex'
-        }
-    }
 
     // Optional: If you need to handle form submission dynamically with AJAX, you can use the following code.
     // document.getElementById('convert-form').addEventListener('submit', function(event) {
