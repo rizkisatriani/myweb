@@ -44,7 +44,7 @@
                         <!-- Right Section - QR Code Display -->
                         <div class="w-full lg:w-1/2 shadow flex justify-center items-center">
                             @if($qrCode)
-                            <div class="p-4 border rounded-lg bg-gray-100 text-center">
+                            <div class="p-4 border rounded-lg bg-gray-100 text-center flex flex-col items-center">
                                 {!! $qrCode !!}
                                 <div class="mt-4 flex gap-2">
                                     <a href="{{ $qrCodeDownloadUrl }}" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Download JPG</a>
