@@ -70,6 +70,15 @@
                             </li> 
                         </ul>
                     </li>
+                    <li class="relative group">
+                        <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Qr Code Generator</a>
+                        <!-- Submenu -->
+                        <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded shadow-lg w-64 z-40">
+                            <li>
+                                <a href="/qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for url</a>
+                            </li>  
+                        </ul>
+                    </li>
                     <li>
                         <a href="/speed-test-internet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Speed Test Internet</a>
                     </li>

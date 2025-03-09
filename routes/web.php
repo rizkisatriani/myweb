@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
-use App\Http\Controllers\DocConvertController; 
+use App\Http\Controllers\DocConvertController;
+use App\Http\Controllers\QRCodeController;
+use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url; 
 /*
@@ -146,4 +149,52 @@ Route::get('/dummy-data', function () {
 
 Route::post('/dummy-data', function () {
     return response()->json(['status' => 'ok']);
+});
+
+Route::get('/qrcode-generator-free', function () {
+    $qrCode = QrCode::size(200)->generate('https://toolsborg.com');
+    return view('generateqrcode', [
+            'breadCrumb' => 'JPG to PDF Tool',
+            'title' => 'Convert JPG to PDF for free',
+            'subtitle' => 'Manage your image files better and save on storage space by converting JPG files to PDF. Use our free JPG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+            'actionUrl' => 'convert-jpg-to-pdf',
+            'qrCode' => $qrCode,
+            'text' => 'https://toolsborg.com',
+            'qrCodeDownloadUrl' =>'/download-qrcode?text='.'https://toolsborg.com',
+            'qrCodePrintdUrl' =>'/print-qrcode?text='.'https://toolsborg.com'
+        ]);
+});
+
+
+Route::post('/qrcode-generator-free', function (Request $request) {
+    $request->validate([
+        'text' => 'required|string|max:255',
+    ]);
+
+    $qrCode = QrCode::size(200)->generate($request->text);
+    // dd($request->frame);
+    return view('generateqrcode', [
+            'breadCrumb' => 'Generate QrCode Tool',
+            'title' => 'Convert JPG to PDF for free',
+            'subtitle' => 'Manage your image files better and save on storage space by converting JPG files to PDF. Use our free JPG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+            'actionUrl' => 'convert-jpg-to-pdf',
+            'qrCode' => $qrCode,
+            'frame' => $request->frame,
+            'text' => $request->text,
+            'qrCodeDownloadUrl' =>'/download-qrcode?text='.$request->text,
+            'qrCodePrintdUrl' =>'/print-qrcode?text='.$request->text
+        ]);
+})->name('qrcode.generate');
+Route::get('/download-qrcode', [QRCodeController::class, 'downloadQRCodeUrl']);
+
+Route::get('/print-qrcode', function (Request $request) {
+    $qrCode = QrCode::size(300)->generate($request->text); // Change the URL or data
+
+    return view('printqrcode',  [
+        'breadCrumb' => 'JPG to PDF Tool',
+        'title' => 'Print QR Code',
+        'subtitle' => 'Manage your image files better and save on storage space by converting JPG files to PDF. Use our free JPG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'actionUrl' => 'convert-jpg-to-pdf',
+        'qrCode' => $qrCode
+    ]);
 });

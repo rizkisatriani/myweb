@@ -1,99 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>https://toolsborg.com</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/_ignition/health-check</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/_ignition/scripts/{script}</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/_ignition/styles/{style}</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/api/user</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
     <url>
         <loc>https://toolsborg.com/convert-jpg-to-pdf</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/convert-jpg-to-png</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/convert-png-to-jpg</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
     <url>
         <loc>https://toolsborg.com/convert-png-to-pdf</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/convert-png-to-jpg</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/convert-jpg-to-png</loc>
+    
+            </url>
     <url>
         <loc>https://toolsborg.com/convert-png-to-webp</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/convert-ppt-to-pdf</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
     <url>
         <loc>https://toolsborg.com/convert-word-to-pdf</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
     <url>
-        <loc>https://toolsborg.com/dummy-data</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/generate-sitemap</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://toolsborg.com/sanctum/csrf-cookie</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+        <loc>https://toolsborg.com/convert-ppt-to-pdf</loc>
+    
+            </url>
     <url>
         <loc>https://toolsborg.com/speed-test-internet</loc>
-        <lastmod>2024-12-16T09:13:08+00:00</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-    </url>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/dummy-data</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/qrcode-generator-free</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/download-qrcode</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/print-qrcode</loc>
+    
+            </url>
 </urlset>
