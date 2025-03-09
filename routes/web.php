@@ -154,9 +154,9 @@ Route::post('/dummy-data', function () {
 Route::get('/qrcode-generator-free', function () {
     $qrCode = QrCode::size(200)->generate('https://toolsborg.com');
     return view('generateqrcode', [
-            'breadCrumb' => 'JPG to PDF Tool',
-            'title' => 'Convert JPG to PDF for free',
-            'subtitle' => 'Manage your image files better and save on storage space by converting JPG files to PDF. Use our free JPG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+            'breadCrumb' => 'Free Generator QR Code',
+            'title' => 'Free Generator QR Code',
+            'subtitle' => 'Free Generator QR Code ',
             'actionUrl' => 'convert-jpg-to-pdf',
             'qrCode' => $qrCode,
             'text' => 'https://toolsborg.com',
