@@ -63,8 +63,15 @@ Route::get('/', function () {
 Route::get('/convert-jpg-to-pdf', function () {
     return view('convertjpgtopdf', [
             'breadCrumb' => 'JPG to PDF Tool',
-            'title' => 'Convert JPG to PDF for free',
-            'subtitle' => 'Manage your image files better and save on storage space by converting JPG files to PDF. Use our free JPG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+            'title' =>   __('convertjpgtopdf.title', [
+                'from' => 'JPG', 
+                'to' => 'PDF',  
+            ]),
+            'subtitle' =>   __('convertjpgtopdf.subtitle', [
+                'from' => 'JPG', 
+                'to' => 'PDF',  
+                'from_to' => 'JPG to PDF'
+            ]),
             'actionUrl' => 'en/convert-jpg-to-pdf',
         ]);
 });
