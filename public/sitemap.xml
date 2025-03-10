@@ -35,11 +35,7 @@
     <url>
         <loc>https://toolsborg.com/speed-test-internet</loc>
     
-            </url>
-    <url>
-        <loc>https://toolsborg.com/dummy-data</loc>
-    
-            </url>
+            </url> 
     <url>
         <loc>https://toolsborg.com/qrcode-generator-free</loc>
     
@@ -50,6 +46,14 @@
             </url>
     <url>
         <loc>https://toolsborg.com/print-qrcode</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/contact-qrcode-generator-free</loc>
+    
+            </url>
+    <url>
+        <loc>https://toolsborg.com/wifi-qrcode-generator-free</loc>
     
             </url>
 </urlset>

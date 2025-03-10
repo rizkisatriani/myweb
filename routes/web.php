@@ -198,3 +198,89 @@ Route::get('/print-qrcode', function (Request $request) {
         'qrCode' => $qrCode
     ]);
 });
+
+
+Route::get('/contact-qrcode-generator-free', function () {
+    $qrCode = QrCode::size(200)->generate('https://toolsborg.com');
+    return view('generateqrcodeforcontact', [
+            'breadCrumb' => 'Free Generator QR Code',
+            'title' => 'Free Generator QR Code',
+            'subtitle' => 'Free Generator QR Code ',
+            'actionUrl' => 'convert-jpg-to-pdf',
+            'qrCode' => $qrCode,
+            'text' => 'https://toolsborg.com',
+            'qrCodeDownloadUrl' =>'/download-qrcode?text='.'https://toolsborg.com',
+            'qrCodePrintdUrl' =>'/print-qrcode?text='.'https://toolsborg.com'
+        ]);
+});
+
+Route::post('/contact-qrcode-generator-free', function (Request $request) {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'phone' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'address' => 'nullable|string|max:255',
+    ]);
+
+    $vCard = "BEGIN:VCARD\nVERSION:3.0\n";
+    $vCard .= "N:{$request->name}\n";
+    $vCard .= "TEL:{$request->phone}\n";
+    $vCard .= "EMAIL:{$request->email}\n";
+    if (!empty($request->address)) {
+        $vCard .= "ADR:{$request->address}\n";
+    }
+    $vCard .= "END:VCARD";
+
+    $qrCode = QrCode::size(200)->generate($vCard);
+
+    return view('generateqrcodeforcontact', [
+        'breadCrumb' => 'Generate Contact QR Code',
+        'title' => 'Generate Contact QR Code for Free',
+        'subtitle' => 'Easily create a QR Code containing contact details that can be scanned to save information directly.',
+        'actionUrl' => 'qrcode-generator-free',
+        'qrCode' => $qrCode,
+        'name' => $request->name,
+        'phone' => $request->phone,
+        'email' => $request->email,
+        'address' => $request->address,
+        'qrCodeDownloadUrl' => '/download-qrcode?text=' . urlencode($vCard),
+        'qrCodePrintdUrl' => '/print-qrcode?text=' . urlencode($vCard)
+    ]);
+})->name('qrcode.generate_contact');
+
+ 
+Route::get('/wifi-qrcode-generator-free', function () {
+    $qrCode = QrCode::size(200)->generate('https://toolsborg.com');
+    return view('generateqrcodeforwifi', [
+            'breadCrumb' => 'Free Generator QR Code',
+            'title' => 'Free Generator QR Code',
+            'subtitle' => 'Free Generator QR Code ',
+            'actionUrl' => 'convert-jpg-to-pdf',
+            'qrCode' => $qrCode,
+            'text' => 'https://toolsborg.com',
+            'qrCodeDownloadUrl' =>'/download-qrcode?text='.'https://toolsborg.com',
+            'qrCodePrintdUrl' =>'/print-qrcode?text='.'https://toolsborg.com'
+        ]);
+});
+
+Route::post('/wifi-qrcode-generator-free', function (Request $request) {
+    $ssid = $request->input('ssid');
+    $encryption = $request->input('encryption', 'WPA'); // Default WPA
+    $password = $request->input('password', '');
+
+    // Format WiFi QR Code
+    $wifiData = "WIFI:S:{$ssid};T:{$encryption};P:{$password};;";
+    
+    $qrCode = QrCode::size(300)->generate($wifiData);
+
+    return view('generateqrcodeforwifi', [
+        'breadCrumb' => 'Generate Contact QR Code',
+        'title' => 'Generate Contact QR Code for Free',
+        'subtitle' => 'Easily create a QR Code containing contact details that can be scanned to save information directly.',
+        'actionUrl' => 'qrcode-generator-free',
+        'ssid'=>$ssid,
+        'qrCode' => $qrCode, 
+        'qrCodeDownloadUrl' => '/download-qrcode?text=' . urlencode($wifiData),
+        'qrCodePrintdUrl' => '/print-qrcode?text=' . urlencode($wifiData)
+    ]);
+})->name('qrcode.generate_wifi');
