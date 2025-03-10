@@ -85,7 +85,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
                                 <path d="M12 2v12M12 2L8 6M12 2l4 4M4 16h16"></path>
                             </svg>
-                            Upload your image
+                            {{ __('convertjpgtopdf.upload_image') }}
                         </label>
                         <!-- <input id="file-upload" type="file" accept="image/*" class="hidden" onchange="handleFileSelect(event)" /> -->
                     </div>

@@ -42,19 +42,19 @@
                         <!-- Submenu -->
                         <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded shadow-lg w-64 z-40">
                             <li>
-                                <a href="/convert-png-to-jpg" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To JPG</a>
+                                <a href="/en/convert-png-to-jpg" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To JPG</a>
                             </li>
                             <li>
-                                <a href="/convert-jpg-to-png" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PNG</a>
+                                <a href="/en/convert-jpg-to-png" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PNG</a>
                             </li>
                             <li>
-                                <a href="/convert-jpg-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PDF</a>
+                                <a href="/en/convert-jpg-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PDF</a>
                             </li>
                             <li>
-                                <a href="/convert-png-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To PDF</a>
+                                <a href="/en/convert-png-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To PDF</a>
                             </li>
                             <li>
-                                <a href="/convert-png-to-webp" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To WEBP</a>
+                                <a href="/en/convert-png-to-webp" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To WEBP</a>
                             </li>
                         </ul>
                     </li>
@@ -63,10 +63,10 @@
                         <!-- Submenu -->
                         <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded shadow-lg w-64 z-40">
                             <li>
-                                <a href="/convert-word-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert Word To PDF</a>
+                                <a href="/en/convert-word-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert Word To PDF</a>
                             </li> 
                             <li>
-                                <a href="/convert-ppt-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PPT / PPTX To PDF</a>
+                                <a href="/en/convert-ppt-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PPT / PPTX To PDF</a>
                             </li> 
                         </ul>
                     </li>
@@ -75,18 +75,18 @@
                         <!-- Submenu -->
                         <ul class="absolute hidden group-hover:block bg-white border border-gray-200 rounded shadow-lg w-64 z-40">
                             <li>
-                                <a href="/qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for url</a>
+                                <a href="/en/qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for url</a>
                             </li>  
                             <li>
-                                <a href="/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for contact</a>
+                                <a href="/en/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for contact</a>
                             </li>  
                             <li>
-                                <a href="/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for wifi</a>
+                                <a href="/en/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for wifi</a>
                             </li>  
                         </ul>
                     </li>
                     <li>
-                        <a href="/speed-test-internet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Speed Test Internet</a>
+                        <a href="/en/speed-test-internet" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Speed Test Internet</a>
                     </li>
                 </ul>
             </div>

@@ -14,9 +14,9 @@
             </div>
 
             <div class="flex space-x-2 p-2"> 
-                <a href="/qrcode-generator-free" class="px-4 py-2 text-black rounded-lg bg-gray-900 text-white">URL</a>
-                <a href="/contact-qrcode-generator-free" class="px-4 py-2 bg-gray-200 text-black rounded-lg">Contact/VCard</a>
-                <a href="/wifi-qrcode-generator-free" class="px-4 py-2 bg-gray-200 text-black rounded-lg">WIFI</a>
+                <a href="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 text-black rounded-lg bg-gray-900 text-white">URL</a>
+                <a href="{{ route('qrcode.generate_contact', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 bg-gray-200 text-black rounded-lg">Contact/VCard</a>
+                <a href="{{ route('qrcode.generate_wifi', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 bg-gray-200 text-black rounded-lg">WIFI</a>
             </div>
             <!-- Main Section -->
             <div class="relative bg-gray-100 rounded-lg p-4">
@@ -29,7 +29,7 @@
                         <!-- Left Section - Input and Options -->
                         <div class="w-full lg:w-1/2">
                             <h2 class="font-semibold mb-4">Enter your text or URL</h2>
-                            <form action="{{ route('qrcode.generate') }}" method="POST">
+                            <form action="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" method="POST">
                                 @csrf
                                 <input
                                     type="text"
