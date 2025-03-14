@@ -126,7 +126,7 @@ Route::get('/convert-ppt-to-pdf', function () {
     return view('convertdoc', [
             'breadCrumb' => 'PPT/PPTX to PDF Tool',
             'title' => 'Convert PPT/PPTX to PDF for free',
-            'subtitle' => 'Manage your image files better and save on storage space by converting PPT/PPTX files to PPT/PPTX. Use our free WORD to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+            'subtitle' =>   __('convertjpgtopdf.subtitle_ppt'),
             'actionUrl' => 'en/convert-ppt-to-pdf',
         ]);
 });
