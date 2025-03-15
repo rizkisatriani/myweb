@@ -309,4 +309,13 @@ Route::get('/cbt', function () {
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
 });
+
+Route::get('/gheet-pengelola-keuangan', function () {
+    return view('gsheet', [
+        'breadCrumb' => 'Aplikasi Com base Test',
+        'title' => 'Aplikasi Com base Test',
+        'subtitle' => 'Solusi Ujian Berbasis Komputer yang Efisien, Akurat, dan Mudah Dikelola! 🚀',
+        'actionUrl' => 'en/convert-png-to-jpg',
+    ]);
+});
 });
