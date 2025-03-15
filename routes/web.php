@@ -305,7 +305,7 @@ Route::get('/cbt', function () {
     return view('cbt', [
         'breadCrumb' => 'Aplikasi Com base Test',
         'title' => 'Aplikasi Com base Test',
-        'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'subtitle' => 'Solusi Ujian Berbasis Komputer yang Efisien, Akurat, dan Mudah Dikelola! 🚀',
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
 });
