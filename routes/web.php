@@ -301,4 +301,12 @@ Route::post('/wifi-qrcode-generator-free', function (Request $request) {
     ]);
 })->name('qrcode.generate_wifi');
 
+Route::get('/cbt', function () {
+    return view('cbt', [
+        'breadCrumb' => 'Aplikasi Com base Test',
+        'title' => 'Aplikasi Com base Test',
+        'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'actionUrl' => 'en/convert-png-to-jpg',
+    ]);
+});
 });
