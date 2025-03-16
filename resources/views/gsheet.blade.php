@@ -132,7 +132,7 @@
                 Klik link berikut untuk langsung beli dan mulai atur keuanganmu dengan lebih baik! 🔥</p>
             <a class="mt-10 text-white bg-red-500 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-bold
          rounded-lg text-sm px-4 lg:px-5 py-6 lg:py-2.5 sm:mr-2 lg:mr-0 
-        dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800" href="#">
+        dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800" href="http://lynk.id/cerdas-finansial/8gzoGBz/checkout">
                 Beli Sekarang juga !!!
             </a>
         </div>
