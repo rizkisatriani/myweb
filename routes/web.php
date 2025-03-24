@@ -5,6 +5,7 @@ use App\Http\Controllers\ImageToPdfController;
 use App\Http\Controllers\DocConvertController;
 use App\Http\Controllers\QRCodeController;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url; 
@@ -26,6 +27,7 @@ Route::get('/', function () {
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
 });
+
 Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|id']], function () {
 Route::get('/generate-sitemap', function () {
     // Ambil semua route yang ada di aplikasi
@@ -319,3 +321,10 @@ Route::get('/gheet-pengelola-keuangan', function () {
     ]);
 });
 });
+
+
+Route::get('/login', function (Request $request) { 
+    return response()->json([
+        'message' => 'Unauthorized. Please login.'
+    ], Response::HTTP_UNAUTHORIZED);
+})->name('login');
