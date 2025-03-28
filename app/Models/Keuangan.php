@@ -17,5 +17,6 @@ class Keuangan extends Model
         'keluar',
         'bukti',
         'tanggal',
+        'saldo_akhir',
     ];
 }
