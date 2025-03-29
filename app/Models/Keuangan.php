@@ -18,5 +18,6 @@ class Keuangan extends Model
         'bukti',
         'tanggal',
         'saldo_akhir',
+        "user_id"
     ];
 }
