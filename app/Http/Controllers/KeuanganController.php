@@ -166,7 +166,7 @@ class KeuanganController extends Controller
     }
 
     // Filter berdasarkan user yang login
-    $query->where('user_id', auth()->id());
+    // $query->where('user_id', auth()->id());
 
     // Hitung total masuk, keluar, dan saldo terakhir
     $totalMasuk = $query->sum('masuk');
