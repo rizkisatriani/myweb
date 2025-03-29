@@ -146,4 +146,37 @@ class KeuanganController extends Controller
             $keuangan->update(['saldo_akhir' => $saldo]);
         }
     }
+
+    public function getSummary(Request $request)
+{
+    $query = Keuangan::query();
+
+    // Filter berdasarkan bulan dan tahun
+    if ($request->filled('bulan') && $request->filled('tahun')) {
+        $query->whereMonth('tanggal', $request->bulan)
+              ->whereYear('tanggal', $request->tahun);
+    }
+
+    // Filter berdasarkan rentang tanggal
+    if ($request->filled('tanggal_awal')) {
+        $query->whereDate('tanggal', '>=', $request->tanggal_awal);
+    }
+    if ($request->filled('tanggal_akhir')) {
+        $query->whereDate('tanggal', '<=', $request->tanggal_akhir);
+    }
+
+    // Filter berdasarkan user yang login
+    $query->where('user_id', auth()->id());
+
+    // Hitung total masuk, keluar, dan saldo terakhir
+    $totalMasuk = $query->sum('masuk');
+    $totalKeluar = $query->sum('keluar');
+    $saldoAkhir = $query->latest('tanggal')->value('saldo_akhir') ?? 0;
+
+    return response()->json([
+        'total_masuk' => $totalMasuk,
+        'total_keluar' => $totalKeluar,
+        'saldo_akhir' => $saldoAkhir
+    ]);
+}
 }
