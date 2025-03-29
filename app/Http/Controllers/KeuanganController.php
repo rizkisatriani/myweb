@@ -202,7 +202,7 @@ public function getSaldoAkhirPerBulan()
                 ->orderBy('tanggal', 'desc')
                 ->value('saldo_akhir');
 
-            $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir ?? 0;
+            $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir/1000 ?? 0;
         }
 
         // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
