@@ -15,9 +15,9 @@ class KeuanganController extends Controller
      * Menampilkan semua data keuangan
      */
     public function index(Request $request){
-        // $userId = auth()->id(); // Ambil ID user yang sedang login ===> next 
-        // $query = Keuangan::where('user_id', $userId); // Hanya data milik user login
-        $query = Keuangan::query();
+        $userId = auth()->id(); // Ambil ID user yang sedang login ===> next 
+        $query = Keuangan::where('user_id', $userId); // Hanya data milik user login
+        // $query = Keuangan::query();
 
         // Filter berdasarkan bulan (opsional)
         if ($request->has('bulan')) {
@@ -71,6 +71,7 @@ class KeuanganController extends Controller
             'saldo_akhir' => $saldoBaru,
             'tanggal' => $request->tanggal,
             'bukti' => $buktiPath,
+            'user_id' => auth()->id(),
         ]);
 
         return response()->json($keuangan, 201);
@@ -169,7 +170,7 @@ class KeuanganController extends Controller
     }
 
     // Filter berdasarkan user yang login
-    // $query->where('user_id', auth()->id());
+    $query->where('user_id', auth()->id());
 
     // Hitung total masuk, keluar, dan saldo terakhir
     $totalMasuk = $query->sum('masuk');
@@ -183,34 +184,37 @@ class KeuanganController extends Controller
     ]);
 }
 public function getSaldoAkhirPerBulan()
-    {
-        $tahunIni = Carbon::now()->year;
+{
+    $userId=auth()->id();
+    $tahunIni = Carbon::now()->year;
 
-        // Ambil saldo_akhir terakhir per bulan
-        $dataSaldoAkhir = Keuangan::select(
-                DB::raw('MONTH(tanggal) as bulan'),
-                DB::raw('MAX(tanggal) as tanggal_terakhir')
-            )
-            ->whereYear('tanggal', $tahunIni)
-            ->groupBy(DB::raw('MONTH(tanggal)'))
-            ->get();
+    // Ambil saldo_akhir terakhir per bulan berdasarkan user_id
+    $dataSaldoAkhir = Keuangan::select(
+            DB::raw('MONTH(tanggal) as bulan'),
+            DB::raw('MAX(tanggal) as tanggal_terakhir')
+        )
+        ->whereYear('tanggal', $tahunIni)
+        ->where('user_id', $userId)
+        ->groupBy(DB::raw('MONTH(tanggal)'))
+        ->get();
 
-        // Ambil saldo_akhir berdasarkan tanggal terakhir yang ditemukan per bulan
-        $saldoAkhirPerBulan = [];
-        foreach ($dataSaldoAkhir as $data) {
-            $saldoAkhir = Keuangan::whereDate('tanggal', $data->tanggal_terakhir)
-                ->orderBy('tanggal', 'desc')
-                ->value('saldo_akhir');
+    // Ambil saldo_akhir berdasarkan tanggal terakhir yang ditemukan per bulan
+    $saldoAkhirPerBulan = [];
+    foreach ($dataSaldoAkhir as $data) {
+        $saldoAkhir = Keuangan::where('user_id', $userId)
+            ->whereDate('tanggal', $data->tanggal_terakhir)
+            ->orderBy('tanggal', 'desc')
+            ->value('saldo_akhir');
 
-            $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir ?? 0;
-        }
-
-        // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
-        $result = [];
-        for ($i = 1; $i <= 12; $i++) {
-            array_push($result,$saldoAkhirPerBulan[$i] ?? 0 ); 
-        }
-
-        return response()->json($result);
+        $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir ?? 0;
     }
+
+    // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
+    $result = [];
+    for ($i = 1; $i <= 12; $i++) {
+        array_push($result, $saldoAkhirPerBulan[$i] ?? 0);
+    }
+
+    return response()->json($result);
+}
 }
