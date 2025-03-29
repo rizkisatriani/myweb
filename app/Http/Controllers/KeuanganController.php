@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Keuangan;
+use Carbon\Carbon;
+use DateTime;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class KeuanganController extends Controller
@@ -179,4 +182,38 @@ class KeuanganController extends Controller
         'saldo_akhir' => $saldoAkhir
     ]);
 }
+public function getSaldoAkhirPerBulan()
+    {
+        $tahunIni = Carbon::now()->year;
+
+        // Ambil saldo_akhir terakhir per bulan
+        $dataSaldoAkhir = Keuangan::select(
+                DB::raw('MONTH(tanggal) as bulan'),
+                DB::raw('MAX(tanggal) as tanggal_terakhir')
+            )
+            ->whereYear('tanggal', $tahunIni)
+            ->groupBy(DB::raw('MONTH(tanggal)'))
+            ->get();
+
+        // Ambil saldo_akhir berdasarkan tanggal terakhir yang ditemukan per bulan
+        $saldoAkhirPerBulan = [];
+        foreach ($dataSaldoAkhir as $data) {
+            $saldoAkhir = Keuangan::whereDate('tanggal', $data->tanggal_terakhir)
+                ->orderBy('tanggal', 'desc')
+                ->value('saldo_akhir');
+
+            $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir ?? 0;
+        }
+
+        // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
+        $result = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $result[] = [
+                'bulan' => DateTime::createFromFormat('!m', $i)->format('F'), // Nama bulan
+                'saldo_akhir' => $saldoAkhirPerBulan[$i] ?? 0
+            ];
+        }
+
+        return response()->json($result);
+    }
 }
