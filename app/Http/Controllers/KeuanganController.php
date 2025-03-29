@@ -208,10 +208,7 @@ public function getSaldoAkhirPerBulan()
         // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
         $result = [];
         for ($i = 1; $i <= 12; $i++) {
-            $result[] = [
-                'bulan' => DateTime::createFromFormat('!m', $i)->format('F'), // Nama bulan
-                'saldo_akhir' => $saldoAkhirPerBulan[$i] ?? 0
-            ];
+            $result[] = [ $saldoAkhirPerBulan[$i] ?? 0 ];
         }
 
         return response()->json($result);
