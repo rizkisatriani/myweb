@@ -31,10 +31,10 @@ class KeuanganController extends Controller
             $query->whereBetween('tanggal', [$request->tanggal_awal, $request->tanggal_akhir]);
         }
     
-        // Urutkan berdasarkan tanggal terbaru
-        $keuangan = $query->orderBy('tanggal', 'desc')->get();
+        // // Urutkan berdasarkan tanggal terbaru
+        // $keuangan = $query->orderBy('tanggal', 'desc')->get();
     
-        return response()->json($keuangan);
+        return response()->json($query->orderBy('tanggal', 'desc')->paginate(10));
     }
 
     /**
