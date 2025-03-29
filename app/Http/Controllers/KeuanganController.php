@@ -201,16 +201,10 @@ public function getSaldoAkhirPerBulan()
             $saldoAkhir = Keuangan::whereDate('tanggal', $data->tanggal_terakhir)
                 ->orderBy('tanggal', 'desc')
                 ->value('saldo_akhir');
+            array_push($saldoAkhirPerBulan, $saldoAkhir/1000 ?? 0); 
+        } 
+       
 
-            $saldoAkhirPerBulan[$data->bulan] = $saldoAkhir/1000 ?? 0;
-        }
-
-        // Pastikan semua 12 bulan terisi, jika tidak ada set default 0
-        $result = [];
-        for ($i = 1; $i <= 12; $i++) {
-            $result[] = [ $saldoAkhirPerBulan[$i] ?? 0 ];
-        }
-
-        return response()->json($result);
+        return response()->json($saldoAkhirPerBulan);
     }
 }
