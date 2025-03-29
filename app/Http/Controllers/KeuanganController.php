@@ -11,9 +11,30 @@ class KeuanganController extends Controller
     /**
      * Menampilkan semua data keuangan
      */
-    public function index()
-    {
-        return response()->json(Keuangan::orderBy('tanggal', 'desc')->get());
+    public function index(Request $request){
+        // $userId = auth()->id(); // Ambil ID user yang sedang login ===> next 
+        // $query = Keuangan::where('user_id', $userId); // Hanya data milik user login
+        $query = Keuangan::query();
+
+        // Filter berdasarkan bulan (opsional)
+        if ($request->has('bulan')) {
+            $query->whereMonth('tanggal', $request->bulan);
+        }
+    
+        // Filter berdasarkan tahun (opsional)
+        if ($request->has('tahun')) {
+            $query->whereYear('tanggal', $request->tahun);
+        }
+    
+        // Filter berdasarkan rentang tanggal
+        if ($request->has('tanggal_awal') && $request->has('tanggal_akhir')) {
+            $query->whereBetween('tanggal', [$request->tanggal_awal, $request->tanggal_akhir]);
+        }
+    
+        // Urutkan berdasarkan tanggal terbaru
+        $keuangan = $query->orderBy('tanggal', 'desc')->get();
+    
+        return response()->json($keuangan);
     }
 
     /**
