@@ -37,7 +37,7 @@ class KeuanganController extends Controller
         // // Urutkan berdasarkan tanggal terbaru
         // $keuangan = $query->orderBy('tanggal', 'desc')->get();
     
-        return response()->json($query->orderBy('tanggal', 'desc')->paginate(10));
+        return response()->json($query->orderBy('tanggal', 'desc')->orderBy('id', 'desc')->paginate(10));
     }
 
     /**
