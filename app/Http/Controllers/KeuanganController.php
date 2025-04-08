@@ -49,7 +49,8 @@ class KeuanganController extends Controller
         }
 
         // Ambil saldo terakhir
-        $saldoTerakhir = Keuangan::latest()->value('saldo_akhir') ?? 0;
+        $saldoTerakhir = Keuangan::where('user_id', auth()->id())->
+        latest()->value('saldo_akhir') ?? 0;
 
         // Hitung saldo baru
         $saldoBaru = $saldoTerakhir + ($request->masuk ?? 0) - ($request->keluar ?? 0);
