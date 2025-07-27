@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
 use App\Http\Controllers\DocConvertController;
 use App\Http\Controllers\QRCodeController;
+use App\Http\Controllers\SitemapController;
+use App\Services\GeminiService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -332,3 +335,9 @@ Route::get('/login', function (Request $request) {
         'message' => 'Unauthorized. Please login.'
     ], Response::HTTP_UNAUTHORIZED);
 })->name('login');
+
+ 
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('/sitemap-blog.xml', [SitemapController::class, 'index']);

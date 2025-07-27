@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Adsdigi | Homepage')
+@section('title', 'Toolsborg | Homepage')
 
 @section('content')
 <section class="bg-white ">
