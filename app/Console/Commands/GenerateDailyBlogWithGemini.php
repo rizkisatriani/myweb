@@ -15,115 +15,108 @@ class GenerateDailyBlogWithGemini extends Command
     protected $description = 'Generate one blog post daily using Gemini, avoiding duplicate topics';
 
     protected $tema = [
-        "Teknologi",
-        "Ekonomi",
-        "Sosial",
-        "Budaya",
-        "Entertaiment",
-        "Kesehatan",
-        "Lifestyle",
-        "Fashion",
-        "Parenting",
-        "Inovasi",
-        "Lingkungan",
-        "Politik",
-        "Pendidikan",
-        "Karier",
-        "Psikologi",
-        "Keamanan Siber",
-        "Startup",
-        "Travel",
-        "Kuliner",
-        "Olahraga",
-        "Digital Marketing",
-        "AI",
-        "Crypto",
-        "Gaming",
-        "Film",
-        "Musik",
-        "Seni",
-        "Fotografi",
-        "Self Improvement",
-        "Spiritualitas",
-        "Relationship",
-        "Media Sosial",
-        "Tren",
-        "Edukasi Anak",
-        "Bisnis",
-        "Wirausaha",
-        "Keuangan",
-        "Investasi",
-        "Properti",
-        "Mobil Listrik",
-        "Pemilu",
-        "Kebijakan Publik",
-        "Selebriti",
-        "Meme",
-        "Komedi",
-        "Inspirasi",
-        "Motivasi",
-        "Cerita Nyata",
-        "Opini Publik",
-        "Keseimbangan Hidup",
-        "Kesehatan Mental",
-        "Remote Work",
-        "Work-Life Balance",
-        "Produktivitas",
-        "Green Energy",
-        "Zero Waste",
-        "Food Waste",
-        "Sustainable Living",
-        "E-commerce",
-        "Cloud Computing",
-        "Gadget",
-        "Startup Funding",
-        "UX/UI Design",
-        "Smart Home",
-        "Cyberbullying",
-        "Parenting Digital",
-        "Digital Nomad",
-        "Online Course",
-        "Pelatihan Karier",
-        "Resensi Buku",
-        "Rekomendasi Film",
-        "Trend Teknologi",
-        "Kehidupan Sehari-hari",
-        "Mindfulness",
-        "Biohacking",
-        "Fitness",
-        "Tips Diet",
-        "Kecantikan",
-        "Skincare",
-        "Kecerdasan Buatan",
-        "Robotik",
-        "Etika Digital",
-        "Perdagangan Internasional",
-        "Ekonomi Kreatif",
-        "Kehidupan Kampus",
-        "Tips Belajar",
-        "Beasiswa",
-        "Perjalanan Spiritual",
-        "Riset Ilmiah",
-        "Teknologi Pertanian",
-        "Infrastruktur Digital",
-        "Transportasi Masa Depan",
-        "Augmented Reality",
-        "Virtual Reality",
-        "Metaverse",
-        "Pemrograman",
-        "Open Source",
-        "UI/UX",
-        "Hackathon",
-        "Komunitas Online",
-        "Crowdfunding",
-        "EduTech",
-        "FinTech",
-        "GovTech",
-        "Space Tech",
-        "Kebijakan Iklim",
-        "Hukum Siber",
-        "Etika Sosial",
-        "Gender dan Kesetaraan",
+    "Teknologi",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Neural Networks",
+    "Natural Language Processing",
+    "Computer Vision",
+    "AI Ethics",
+    "Generative AI",
+    "Prompt Engineering",
+    "Robotics",
+    "Drone Technology",
+    "Cybersecurity",
+    "Hukum Siber",
+    "Etika Digital",
+    "IoT (Internet of Things)",
+    "Smart Cities",
+    "Smart Home",
+    "Wearable Technology",
+    "Cloud Computing",
+    "Edge Computing",
+    "Quantum Computing",
+    "Big Data",
+    "Data Science",
+    "Data Engineering",
+    "Augmented Reality",
+    "Virtual Reality",
+    "Mixed Reality",
+    "Metaverse",
+    "Blockchain",
+    "Cryptocurrency",
+    "NFT",
+    "FinTech",
+    "InsurTech",
+    "HealthTech",
+    "EduTech",
+    "AgriTech",
+    "Space Tech",
+    "Green Tech",
+    "Clean Tech",
+    "Bioinformatics",
+    "3D Printing",
+    "Autonomous Vehicles",
+    "Electric Vehicles",
+    "Battery Technology",
+    "Startup Teknologi",
+    "SaaS (Software as a Service)",
+    "PaaS",
+    "DevOps",
+    "CI/CD",
+    "Open Source",
+    "Programming",
+    "Backend Development",
+    "Frontend Development",
+    "Fullstack Development",
+    "Mobile Development",
+    "Game Development",
+    "Web3",
+    "Digital Identity",
+    "Digital Wallet",
+    "Tech Startup Funding",
+    "Venture Capital",
+    "Crowdfunding Teknologi",
+    "UX Design",
+    "UI Design",
+    "Product Design",
+    "Human-Computer Interaction",
+    "Quantum Internet",
+    "Network Security",
+    "Penetration Testing",
+    "Bug Bounty",
+    "Privacy Tech",
+    "Data Privacy",
+    "Digital Forensics",
+    "Digital Transformation",
+    "Industry 4.0",
+    "5G Technology",
+    "6G Research",
+    "Smart Manufacturing",
+    "Digital Twin",
+    "Remote Work Tools",
+    "Productivity Tech",
+    "Digital Nomad Tools",
+    "Cloud Storage",
+    "Video Streaming Tech",
+    "Voice Assistant Tech",
+    "Speech Recognition",
+    "Facial Recognition",
+    "Content Moderation AI",
+    "Ethical Hacking",
+    "Serverless Architecture",
+    "Microservices",
+    "API Economy",
+    "No-Code Platforms",
+    "Low-Code Development",
+    "Digital Marketing Automation",
+    "AdTech",
+    "Recommendation Systems",
+    "Search Engine Algorithms",
+    "Digital Accessibility",
+    "Quantum Cryptography",
+    "Sustainable Tech"
     ];
 
     public function handle(GeminiService $gemini)
@@ -201,21 +194,92 @@ class GenerateDailyBlogWithGemini extends Command
         return 0;
     }
 
-    protected function getKategoriDanGambar(string $tema): array
-    {
-        return match (true) {
-            in_array($tema, ["Teknologi", "AI", "Crypto", "Cloud Computing", "Gadget", "Startup", "UX/UI Design", "Smart Home", "Open Source", "Pemrograman", "UI/UX", "Hackathon", "FinTech", "GovTech", "Space Tech", "Virtual Reality", "Augmented Reality", "Metaverse", "Infrastruktur Digital", "Transportasi Masa Depan", "Kecerdasan Buatan", "Robotik", "Trend Teknologi"]) =>
-            ["Technology, Innovation", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJC1y3sI9JOUI5oWgw1RkH86c1MbW9yeUHo1yHHycX6MtrFkLpRptEujjgOqn0B34nPBwynB7D1fR3EheTNAj68EznWvdoXwq867VeJqRDfnFbnr4fgvJR0iHp-WLz1BgoD-O7kjRXtuIZZLT33H2A-IxsesCPi3JkoRKHofS1AZyb3fI/s1600/Gemini_Generated_Image_6633dn6633dn6633.png"],
-            in_array($tema, ["Ekonomi", "Digital Marketing", "Bisnis", "Wirausaha", "Investasi", "Keuangan", "Properti", "Karier", "Pelatihan Karier", "Remote Work", "Work-Life Balance", "Produktivitas", "E-commerce", "Crowdfunding", "Ekonomi Kreatif", "Perdagangan Internasional"]) =>
-            ["Economy, Business, Career", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5PCNcXjDSMRSmiKtWpOStJbcagzScgS1RSqp_ebhz6m3ji-Akc9-CzpOMwKPG2tjAWHKWFa_gnm9mWm0AGvKLpvFetlGtF8-mbgDGEe7UdOJQe5vbi43B0FWZFi-cohdeFH8z4tOc5raqzajVzZV3J030kiBLmqqF9kzYkvHUId0uE7M/s1600/Gemini_Generated_Image_udwfczudwfczudwf.png"],
-            in_array($tema, ["Kesehatan", "Kesehatan Mental", "Lifestyle", "Skincare", "Kecantikan", "Fitness", "Tips Diet", "Biohacking", "Mindfulness", "Parenting", "Parenting Digital", "Edukasi Anak", "Pendidikan", "Tips Belajar", "Kehidupan Kampus", "Beasiswa", "Resensi Buku", "Online Course"]) =>
-            ["Health, Lifestyle, Education", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAvXl92EUXYJvOir2mFOinrrFFoEt5UGAgTUavsadzBDDhohUWufuUx9KEfteOIq1LcbqabgrBScwsaD51ZkGYZhfOZRaZ6-ytV0_PnZ_XlH71nYgLobkbTuySAvq6uRZBQvlrP_OJAraesR5EWJ32Pf9VdvVwPceaeGrof-bfDFBPjQU/s1600/Gemini_Generated_Image_wc52cxwc52cxwc52.png"],
-            in_array($tema, ["Lingkungan", "Green Energy", "Zero Waste", "Food Waste", "Sustainable Living", "Kebijakan Iklim", "Teknologi Pertanian", "Hukum Siber", "Keamanan Siber", "Cyberbullying", "Etika Digital"]) =>
-            ["Environment, Sustainability", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-FRLHyixrMNlN6xNAQDIXazWsjY3jBKzSPkJ0zMg-Ixkg7LHIRQCnIyH5V5fOwx1HCBdpYp4vhRh-vuxLjm-7JdHXyETCiNEg6ZY8N162FbE9Hf3IiKksOBl-XEghQ-fbalbhaFLFGLNW4R-Jgp_4gSGS5zF3jL0-7iTTXokFAWOj3bg/s1600/Gemini_Generated_Image_93scto93scto93sc.png"],
-            default =>
-            ["General", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguuHUBS7A0LQt8sYl3AgZTV-JBiHk0_dTMVLmIPmTVCAhojxpVMU-0Ji4EOc39klDUV7e6JtwONgW-Jme35FnYjJzrIKnQeC2Pd-RNrtcG5m57wcLpE6_muRteVUiRh7OmRcXlCI7RkPgyd53Ip2tVsfvi2zJ9j_pnsP7HS19Vs96HqyM/s1600/Gemini_Generated_Image_wpdsc9wpdsc9wpds.png"],
-        };
-    }
+protected function getKategoriDanGambar(string $tema): array
+{
+    return match (true) {
+        // AI & Machine Learning
+        in_array($tema, [
+            "Artificial Intelligence", "Machine Learning", "Deep Learning", "Neural Networks",
+            "Natural Language Processing", "Computer Vision", "AI Ethics", "Generative AI",
+            "Prompt Engineering", "Recommendation Systems", "Speech Recognition", "Facial Recognition",
+            "Content Moderation AI"
+        ]) =>
+        ["AI & Machine Learning", "https://toolsborg.com/img/ai.png"],
+
+        // Cybersecurity & Privacy
+        in_array($tema, [
+            "Cybersecurity", "Hukum Siber", "Etika Digital", "Network Security",
+            "Penetration Testing", "Bug Bounty", "Digital Forensics", "Ethical Hacking",
+            "Privacy Tech", "Data Privacy", "Quantum Cryptography"
+        ]) =>
+        ["Cybersecurity & Privacy", "https://toolsborg.com/img/cybersecurity.png"],
+
+        // Web & App Development
+        in_array($tema, [
+            "Programming", "Open Source", "Backend Development", "Frontend Development",
+            "Fullstack Development", "Mobile Development", "Game Development",
+            "Serverless Architecture", "Microservices", "API Economy",
+            "No-Code Platforms", "Low-Code Development"
+        ]) =>
+        ["Web & App Development", "https://toolsborg.com/img/dev.png"],
+
+        // Blockchain & Web3
+        in_array($tema, [
+            "Blockchain", "Cryptocurrency", "NFT", "Web3", "Digital Wallet",
+            "Digital Identity"
+        ]) =>
+        ["Blockchain & Web3", "https://toolsborg.com/img/blockchain.png"],
+
+        // Hardware & Devices
+        in_array($tema, [
+            "Robotics", "Drone Technology", "IoT (Internet of Things)", "Smart Cities",
+            "Smart Home", "Wearable Technology", "Electric Vehicles", "Autonomous Vehicles",
+            "Battery Technology", "3D Printing", "Cloud Storage", "Video Streaming Tech",
+            "Voice Assistant Tech"
+        ]) =>
+        ["Hardware & Devices", "https://toolsborg.com/img/hardware.png"],
+
+        // Green & Sustainable Tech
+        in_array($tema, [
+            "Green Tech", "Clean Tech", "Bioinformatics", "Sustainable Tech"
+        ]) =>
+        ["Green & Sustainable Tech", "https://toolsborg.com/img/green.png"],
+
+        // Business Tech
+        in_array($tema, [
+            "FinTech", "InsurTech", "HealthTech", "EduTech", "AgriTech", "Startup Teknologi",
+            "Tech Startup Funding", "Venture Capital", "Crowdfunding Teknologi",
+            "SaaS (Software as a Service)", "PaaS", "Digital Marketing Automation", "AdTech",
+            "Digital Transformation", "Industry 4.0", "Smart Manufacturing", "Digital Twin"
+        ]) =>
+        ["Business Tech", "https://toolsborg.com/img/business.png"],
+
+        // Design & UX
+        in_array($tema, [
+            "UX Design", "UI Design", "Product Design", "Human-Computer Interaction",
+            "Digital Accessibility"
+        ]) =>
+        ["Design & UX", "https://toolsborg.com/img/ux.png"],
+
+        // Telecommunication & Networking
+        in_array($tema, [
+            "Quantum Internet", "5G Technology", "6G Research"
+        ]) =>
+        ["Telecom & Networking", "https://toolsborg.com/img/network.png"],
+
+        // Emerging Tech
+        in_array($tema, [
+            "Quantum Computing", "Big Data", "Data Science", "Data Engineering", "Cloud Computing",
+            "Edge Computing", "Remote Work Tools", "Productivity Tech", "Digital Nomad Tools",
+            "Search Engine Algorithms"
+        ]) =>
+        ["Emerging Technologies", "https://toolsborg.com/img/emerging.png"],
+
+        // Default fallback
+        default =>
+        ["General Tech", "https://toolsborg.com/img/default.png"],
+    };
+}
 
     protected function convertToHtml(string $isi, ?string $imageURL = null): string
     {
