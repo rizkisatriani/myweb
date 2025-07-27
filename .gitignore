@@ -13,3 +13,9 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.well-known
+/complete-kasir.toolsborg.com
+/keuangan-simple.toolsborg.com
+/public/info.php
+/public/public
+/simple-kasir.toolsborg.com

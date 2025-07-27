@@ -322,6 +322,10 @@ Route::get('/gheet-pengelola-keuangan', function () {
 });
 });
 
+Route::get('/testphp', function (Request $request) { 
+   echo phpinfo();
+});
+
 
 Route::get('/login', function (Request $request) { 
     return response()->json([
