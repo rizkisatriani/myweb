@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@themesberg" />
     <meta name="twitter:creator" content="@themesberg" />
-
+    <meta name="google-adsense-account" content="ca-pub-9168454602694889">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/logo.svg">
