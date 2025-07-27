@@ -15,7 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+       $schedule->command('blog:generate-daily --user=1')
+        ->everyMinute()
+        ->withoutOverlapping();
     }
 
     /**
