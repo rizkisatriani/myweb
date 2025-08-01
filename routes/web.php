@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
 use App\Http\Controllers\DocConvertController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\SitemapController;
 use App\Services\GeminiService;
@@ -63,7 +64,7 @@ Route::get('/', function () {
         'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
-});
+})->name('home');
 
 Route::get('/convert-jpg-to-pdf', function () {
     return view('convertjpgtopdf', [
@@ -323,6 +324,9 @@ Route::get('/gheet-pengelola-keuangan', function () {
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
 });
+
+Route::get('/invoice/create', [InvoiceController::class, 'create'])->name('invoice.create');
+Route::post('/invoice/generate', [InvoiceController::class, 'generate'])->name('invoice.generate');
 });
 
 Route::get('/testphp', function (Request $request) { 
@@ -341,3 +345,5 @@ Route::get('/login', function (Request $request) {
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
 Route::get('/sitemap-blog.xml', [SitemapController::class, 'index']);
+
+

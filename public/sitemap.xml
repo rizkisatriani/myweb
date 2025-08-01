@@ -1,131 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+    xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>https://toolsborg.com</loc>
-    
-            </url> 
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-jpg-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-png-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-png-to-jpg</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-jpg-to-png</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-png-to-webp</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-word-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/convert-ppt-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/speed-test-internet</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/dummy-data</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/qrcode-generator-free</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/download-qrcode</loc>
-    
-            </url>
+
+    </url>
+    <url>
+        <loc>https://toolsborg.com/en/invoice/create</loc>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/print-qrcode</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/contact-qrcode-generator-free</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/en/wifi-qrcode-generator-free</loc>
-    
-            </url>
-            <url>
+
+    </url>
+    <url>
         <loc>https://toolsborg.com/id/convert-jpg-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-png-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-png-to-jpg</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-jpg-to-png</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-png-to-webp</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-word-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/convert-ppt-to-pdf</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/speed-test-internet</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/dummy-data</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/qrcode-generator-free</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/download-qrcode</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/print-qrcode</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/contact-qrcode-generator-free</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/wifi-qrcode-generator-free</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/cbt</loc>
-    
-            </url>
+
+    </url>
     <url>
         <loc>https://toolsborg.com/id/gheet-pengelola-keuangan</loc>
-    
-            </url>
+
+    </url>
+    <url>
+        <loc>https://toolsborg.com/id/invoice/create</loc>
+    </url>
 </urlset>
