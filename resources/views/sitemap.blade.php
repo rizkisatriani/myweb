@@ -10,7 +10,7 @@
 
     @foreach ($blogs as $blog)
         <url>
-            <loc>{{ url('blog/' . $blog->slug) }}</loc>
+            <loc>{{ url('blogs/' . $blog->slug) }}</loc>
             <lastmod>{{ optional($blog->published_at)->toAtomString() }}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.8</priority>
