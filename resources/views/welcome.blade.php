@@ -8,7 +8,7 @@
     <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
         <div class="mr-auto place-self-center lg:col-span-7">
             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Toolsborg <br>Tools Online Center.</h1>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Discover a Comprehensive Range of Online Tools Designed to Streamline Your Daily Tasks and Maximize Productivity</p>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Simplify your workday with a suite of powerful online tools — from image and document converters to enterprise-grade speed testing. Boost productivity, streamline tasks, and save time! </p>
             <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                 <a href="https://www.youtube.com/@programmerninja1950" target="_blank" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     <svg class="w-4 h-4 mr-2" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.00 461.00" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="0.0046100099999999995">
@@ -41,8 +41,10 @@
         <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Boost Efficiency with Our Powerful Features! 🚀</h2>
             <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-            Discover the best solutions tailored to your needs with cutting-edge features designed to enhance productivity, security, 
-            and convenience. Experience faster, smarter, and more efficient performance—all in one place!</p>
+            Discover the best digital solutions meticulously crafted to meet your unique needs, 
+            whether you're managing personal tasks or running complex business operations. 
+            Our platform offers a suite of cutting-edge tools that combine innovation, security, 
+            and ease of use—empowering you to work more efficiently and confidently. </p>
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
             <!-- Pricing Card -->
