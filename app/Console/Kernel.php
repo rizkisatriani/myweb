@@ -15,9 +15,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('blog:generate-daily --user=1')
-            ->hourly()
-            ->withoutOverlapping();
+       $schedule->command('blog:generate-daily --user=1')
+        ->everyThreeHours()
+        ->withoutOverlapping();
     }
 
     /**
@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__ . '/Commands');
+        $this->load(__DIR__.'/Commands');
 
         require base_path('routes/console.php');
     }
