@@ -347,3 +347,11 @@ Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show')
 Route::get('/sitemap-blog.xml', [SitemapController::class, 'index']);
 
 
+Route::get('/privacy', function () {
+    return view('privacy', [
+        'breadCrumb' => 'Toolsborg Tools Online Center',
+        'title' => 'Toolsborg Tools Online Center',
+        'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+        'actionUrl' => 'en/convert-png-to-jpg',
+    ]);
+});
