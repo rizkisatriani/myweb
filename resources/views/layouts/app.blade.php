@@ -59,7 +59,7 @@
     @include('components.footer') <!-- Footer -->
     <!-- Cookie Consent Banner -->
     <div id="cookie-consent"
-     class="fixed inset-0 bg-black bg-opacity-40 flex justify-center z-50 transition-opacity duration-300 items-end pb-8 mb-8">
+     class="fixed inset-0 bg-black bg-opacity-40 flex justify-center z-50 transition-opacity duration-300 items-end pb-8 mb-8 hidden">
     <div class="max-w-sm w-full rounded-xl p-6 shadow-xl text-center relative bg-gray-200 shadow-lg max-w-screen-md">
         <h2 class="text-lg font-semibold mb-3 text-gray-800">We value your privacy</h2>
         <p class="text-sm text-gray-600 mb-4">
@@ -83,7 +83,7 @@
             setTimeout(() => {
                 consentModal.classList.remove("opacity-0");
             }, 50);
-        }
+        } 
 
         acceptBtn.addEventListener("click", function () {
             localStorage.setItem("cookie_consent", "true");
