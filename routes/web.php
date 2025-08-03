@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
 use App\Http\Controllers\DocConvertController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\JpgToPdfController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\SitemapController;
 use App\Services\GeminiService;
@@ -66,30 +67,32 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::get('/convert-jpg-to-pdf', function () {
-    return view('convertjpgtopdf', [
-            'breadCrumb' => 'JPG to PDF Tool',
-            'title' =>   __('convertjpgtopdf.title', [
-                'from' => 'JPG', 
-                'to' => 'PDF',  
-            ]),
-            'subtitle' =>   __('convertjpgtopdf.subtitle', [
-                'from' => 'JPG', 
-                'to' => 'PDF',  
-                'from_to' => 'JPG to PDF'
-            ]),
-            'actionUrl' => 'en/convert-jpg-to-pdf',
-        ]);
-});
+Route::get('/convert-jpg-to-pdf',  [JpgToPdfController::class, 'showUploadForm']);
+// , function () {
+//     return view('convertjpgtopdf', [
+//             'breadCrumb' => 'JPG to PDF Tool',
+//             'title' =>   __('convertjpgtopdf.title', [
+//                 'from' => 'JPG', 
+//                 'to' => 'PDF',  
+//             ]),
+//             'subtitle' =>   __('convertjpgtopdf.subtitle', [
+//                 'from' => 'JPG', 
+//                 'to' => 'PDF',  
+//                 'from_to' => 'JPG to PDF'
+//             ]),
+//             'actionUrl' => 'en/convert-jpg-to-pdf',
+//         ]);
+// });
 
-Route::get('/convert-png-to-pdf', function () {
-    return view('convertjpgtopdf', [
-            'breadCrumb' => 'PNG to PDF Tool',
-            'title' => 'Convert PNG to PDF for free',
-            'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to PDF. Use our free PNG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
-            'actionUrl' => 'en/convert-jpg-to-pdf',
-        ]);
-});
+Route::get('/convert-png-to-pdf',  [JpgToPdfController::class, 'showUploadForm']);
+// , function () {
+//     return view('convertjpgtopdf', [
+//             'breadCrumb' => 'PNG to PDF Tool',
+//             'title' => 'Convert PNG to PDF for free',
+//             'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to PDF. Use our free PNG to PDF converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
+//             'actionUrl' => 'en/convert-jpg-to-pdf',
+//         ]);
+// });
 
 
 Route::get('/convert-png-to-jpg', function () {
@@ -347,6 +350,11 @@ Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show')
 Route::get('/sitemap-blog.xml', [SitemapController::class, 'index']);
 
 
+Route::get('/uploadJpg', [JpgToPdfController::class, 'showUploadForm'])->name('upload.form');
+Route::post('/upload', [JpgToPdfController::class, 'handleUpload'])->name('upload.handle');
+
+Route::get('/editToPdf', [JpgToPdfController::class, 'showEditPage'])->name('edit.page');
+Route::post('/convert', [JpgToPdfController::class, 'convertToPdf'])->name('convert.pdf');
 Route::get('/privacy', function () {
     return view('privacy', [
         'breadCrumb' => 'Toolsborg Tools Online Center',
