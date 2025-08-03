@@ -95,11 +95,11 @@
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     const wrapper = document.createElement('div');
-                    wrapper.classList.add('relative', 'draggable');
+                    wrapper.classList.add('relative', 'draggable', 'bg-white', 'shadow-md', 'border', 'border-gray-300', 'overflow-hidden', 'p-4', 'aspect-[3/4]', 'aspect-wrapper');
                     wrapper.dataset.path = file.name + Math.random().toString(36).substr(2, 5);
 
                     wrapper.innerHTML = `
-                        <img src="${e.target.result}" class="w-full h-auto border rounded shadow-sm">
+                        <img src="${e.target.result}" class="object-contain w-full h-full">
                         <input type="hidden" name="new_images_base64[]" value="${e.target.result}">
                     `;
                     imageList.appendChild(wrapper);
