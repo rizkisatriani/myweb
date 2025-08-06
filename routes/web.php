@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
 use App\Http\Controllers\DocConvertController;
+use App\Http\Controllers\ImageEnhanceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JpgToPdfController;
 use App\Http\Controllers\QRCodeController;
@@ -363,3 +364,5 @@ Route::get('/privacy', function () {
         'actionUrl' => 'en/convert-png-to-jpg',
     ]);
 });
+// Route::get('/enhance', [ImageEnhanceController::class, 'index']);
+// Route::post('/enhance', [ImageEnhanceController::class, 'enhance'])->name('enhance.process');
