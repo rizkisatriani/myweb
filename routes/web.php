@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JpgToPdfController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\SitemapController;
+use App\Models\Blog;
 use App\Services\GeminiService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -26,11 +27,13 @@ use Spatie\Sitemap\Tags\Url;
 |
 */
 Route::get('/', function () {
+    $blogs = Blog::orderBy('published_at', 'desc')->limit(3)->get();
     return view('welcome', [
         'breadCrumb' => 'Toolsborg Tools Online Center',
         'title' => 'Toolsborg Tools Online Center',
         'subtitle' => 'Manage your image files better and save on storage space by converting PNG files to JPG. Use our free PNG to JPG converter to touch up or edit your photos without lowering their quality or worrying about unnecessary watermarks. ',
         'actionUrl' => 'en/convert-png-to-jpg',
+        'blogs' => $blogs, 
     ]);
 });
 

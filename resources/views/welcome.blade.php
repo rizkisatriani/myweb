@@ -29,124 +29,102 @@
             </div>
         </div>
         <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-            <img src="{{ asset('ilustration_landing_page.png') }}" alt="hero image">
+            <img class="absolute top-0 right-0" src="{{ asset('images/bg_top.webp') }}" alt="hero image">
         </div>
     </div>
 </section>
 
 <section class="bg-white dark:bg-gray-900">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto ">
-        <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
-            <h2 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl dark:text-white">Turn Images into PDFs</h2>
-            <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">A simple tool to transform your pictures into polished PDF documents.</p>
-            <video class="mx-auto " width="480" autoplay loop muted playsinline>
-                <source src="{{ asset('video/image_to_pdf.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="text-left">
-                <p class="mb-4 font-light text-gray-500 sm:text-l dark:text-gray-400">
-                    Need a quick and reliable way to convert your images into PDF files? Our Image Converter Tool makes the process fast, simple, and stress-free. Whether you're organizing scanned documents, sharing photos in a single file, or creating a professional presentation, this tool is designed to help you do it all in just a few clicks.
-                </p>
-
-                <p class="mb-6 font-light text-gray-500 sm:text-l dark:text-gray-400">
-                    With support for various image formats like JPG, PNG, BMP, and more, you can effortlessly upload your files and convert them into a clean, high-quality PDF. No need for complicated software or technical know-how — just drag, drop, and convert.
-                </p>
- 
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base/7 font-semibold text-indigo-600">Complete tools</h2>
+                <p class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl lg:text-balance">Boost Efficiency with Our Powerful Features!</p>
+                <p class="mt-6 text-lg/8 text-gray-700">Discover the best digital solutions meticulously crafted to meet your unique needs,
+                    whether you're managing personal tasks or running complex business operations.</p>
             </div>
-
+            <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+                <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-white">
+                                    <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            Jpg to pdf
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Convert JPG to PDF instantly, preserving image quality for professional, organized, and easy document sharing.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-white">
+                                    <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            Document tools
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Edit, convert, and create with document tools, from Word/PPT to PDF to instant professional invoice generation.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-white">
+                                    <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            Image tools
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Easily convert images between JPG, PNG, and WebP formats, preserving quality for fast, reliable, and versatile use.</dd>
+                    </div>
+                    <div class="relative pl-16">
+                        <dt class="text-base/7 font-semibold text-gray-900">
+                            <div class="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 text-white">
+                                    <path d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            QR codes
+                        </dt>
+                        <dd class="mt-2 text-base/7 text-gray-600">Generate custom QR codes for WiFi, contact details, and URLs, making sharing simple, fast, and secure.</dd>
+                    </div>
+                </dl>
+            </div>
         </div>
     </div>
+
 </section>
 <section class="bg-white dark:bg-gray-900">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
-        <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
-            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Boost Efficiency with Our Powerful Features! 🚀</h2>
-            <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">
-                Discover the best digital solutions meticulously crafted to meet your unique needs,
-                whether you're managing personal tasks or running complex business operations.
-                Our platform offers a suite of cutting-edge tools that combine innovation, security,
-                and ease of use—empowering you to work more efficiently and confidently. </p>
-        </div>
-        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-            <!-- Pricing Card -->
-            <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-                <h3 class="mb-4 text-2xl font-semibold">Image Convert</h3>
-                <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Fast, easy, and high-quality conversions in just one click. Try it now!</p>
-                <div class="flex items-baseline justify-center my-8">
-                    <img src="{{ asset('images/2.png') }}" alt="Image Convert">
-                </div>
-                <!-- List -->
-                <div>
-                    <ul role="list" class="mb-8 space-y-4 text-left">
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span><a href="/convert-png-to-jpg">PNG to JPG Tool</a></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span><a href="/convert-jpg-to-png">JPG to PNG Tool</a></span>
-                        </li>
-                        <li class="flex items-center space-x-3">
-                            <!-- Icon -->
-                            <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                            </svg>
-                            <span><a href="/convert-jpg-to-pdf">JPG to PDF Tool</a></span></span>
-                        </li>
-                    </ul>
-                    <!-- <a href="#" class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get started</a> -->
-                </div>
+    <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl lg:mx-0">
+                <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">From the blog</h2>
+                <p class="mt-2 text-lg/8 text-gray-600">Learn how to grow your business with our expert advice.</p>
             </div>
-            <!-- Pricing Card -->
-            <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-                <h3 class="mb-4 text-2xl font-semibold">Document Convert</h3>
-                <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Fast, easy, and high-quality document conversion in one click. Try it now!</p>
-                <div class="flex items-baseline justify-center my-8">
-                    <img src="{{ asset('images/1.png') }}" alt="Document Convert">
-                </div>
-                <!-- List -->
-                <ul role="list" class="mb-8 space-y-4 text-left">
-                    <li class="flex items-center space-x-3">
-                        <!-- Icon -->
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span><a href="/convert-word-to-pdf">WORD to PDF Tool</a></span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <!-- Icon -->
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span><a href="/convert-ppt-to-pdf">PPT/PPTX to PDF Tool</a></span>
-                    </li>
-                </ul>
-                <!-- <a href="#" class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get started</a> -->
-            </div>
-            <!-- Pricing Card -->
-            <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-                <h3 class="mb-4 text-2xl font-semibold">Enterprise</h3>
-                <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Quick, accurate, and reliable speed test in just one click. Check your connection!</p>
-                <div class="flex items-baseline justify-center my-8">
-                    <img src="{{ asset('images/3.png') }}" alt="Speed Test Internet">
-                </div>
-                <!-- List -->
-                <ul role="list" class="mb-8 space-y-4 text-left">
-                    <li class="flex items-center space-x-3">
-                        <!-- Icon -->
-                        <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span><a href="/speed-test-internet">Speed Test</a></span>
-                    </li>
-                </ul>
-                <!-- <a href="#" class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-purple-900">Get started</a> -->
+            <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                @foreach ($blogs as $blog)
+                <article
+                 onclick="window.location='{{ route('blogs.show', $blog->slug) }}'"
+                 class="flex max-w-xl flex-col items-start justify-between cursor-pointer">
+                    @if ($blog->featured_image)
+                    <img src="{{ $blog->featured_image }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover rounded-xl">
+                    @endif
+                    <div class="flex items-center gap-x-4 text-xs">
+                        <time datetime="2020-03-16" class="text-gray-500">{{$blog->published_at->format('F j, Y')}}</time>
+                        <a href="#" class="capitalize relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{pathinfo($blog->featured_image, PATHINFO_FILENAME)}}</a>
+                    </div>
+                    <div class="group relative grow">
+                        <h3 class="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                            <a href="#">
+                                <span class="absolute inset-0"></span>
+                                {{ $blog->title }}
+                            </a>
+                        </h3>
+                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-600">{{ Str::limit(strip_tags($blog->excerpt), 100) }}</p>
+                    </div>
+                </article>
+                @endforeach
             </div>
         </div>
     </div>
