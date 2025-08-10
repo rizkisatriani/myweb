@@ -15,7 +15,7 @@
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Toolsborg</span>
             </a>
             <div class="flex items-center lg:order-2">
-                <a href="https://www.youtube.com/@programmerninja1950" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Subscribe</a>
+                <a href="/contact" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Contact Us</a>
                 <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -29,6 +29,7 @@
             <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 gap-16">
                     <li class="relative group">
+                        
                         <a href="/" class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
                     </li> 
                     <li class="relative group">
@@ -47,19 +48,24 @@
                                         <h3 class="font-semibold text-gray-900 mb-1">Images Tools</h3>
                                         <ul class="space-y-3">
                                             <li>
-                                                <a href="/en/convert-png-to-jpg" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To JPG</a>
+                                                <a href="/en/convert-png-to-jpg" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-filetype-jpg text-gray-500 text-xl"></i> Convert PNG To JPG</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-jpg-to-png" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PNG</a>
+                                                <a href="/en/convert-jpg-to-png" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-filetype-png text-gray-500 text-xl"></i>Convert JPG To PNG</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-jpg-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert JPG To PDF</a>
+                                                <a href="/en/convert-jpg-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-filetype-pdf text-gray-500 text-xl"></i>Convert JPG To PDF</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-png-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To PDF</a>
+                                                <a href="/en/convert-png-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-filetype-pdf text-gray-500 text-xl"></i>Convert PNG To PDF</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-png-to-webp" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PNG To WEBP</a>
+                                                <a href="/en/convert-png-to-webp" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-images text-gray-500 text-xl"></i>Convert PNG To WEBP</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -68,13 +74,16 @@
                                         <h3 class="font-semibold text-gray-900 mb-1">Document Tools</h3>
                                         <ul class="space-y-3">
                                             <li>
-                                                <a href="/en/convert-word-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert Word To PDF</a>
+                                                <a href="/en/convert-word-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-file-earmark-word text-gray-500 text-xl"></i>Convert Word To PDF</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-ppt-to-pdf" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Convert PPT / PPTX To PDF</a>
+                                                <a href="/en/convert-ppt-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-filetype-ppt text-gray-500 text-xl"></i>Convert PPT / PPTX To PDF</a>
                                             </li>
                                             <li>
-                                                <a href="/en/invoice/create" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Invoice Generator</a>
+                                                <a href="/en/invoice/create" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-receipt text-gray-500 text-xl"></i>Invoice Generator</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -83,13 +92,16 @@
                                         <h3 class="font-semibold text-gray-900 mb-1">Qr Code Generator</h3>
                                         <ul class="space-y-3">
                                             <li>
-                                                <a href="/en/qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for url</a>
+                                                <a href="/en/qrcode-generator-free" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-qr-code text-gray-500 text-xl"></i>Generate Qr Code for url</a>
                                             </li>
                                             <li>
-                                                <a href="/en/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for contact</a>
+                                                <a href="/en/contact-qrcode-generator-free" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-qr-code text-gray-500 text-xl"></i>Generate Qr Code for contact</a>
                                             </li>
                                             <li>
-                                                <a href="/en/contact-qrcode-generator-free" class="block py-2 px-4 text-gray-700 hover:bg-gray-100">Generate Qr Code for wifi</a>
+                                                <a href="/en/contact-qrcode-generator-free" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-qr-code text-gray-500 text-xl"></i>Generate Qr Code for wifi</a>
                                             </li>
                                         </ul>
                                     </div>

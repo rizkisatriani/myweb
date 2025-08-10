@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageToPdfController; 
 use App\Http\Controllers\DocConvertController;
@@ -369,3 +370,5 @@ Route::get('/privacy', function () {
 });
 // Route::get('/enhance', [ImageEnhanceController::class, 'index']);
 // Route::post('/enhance', [ImageEnhanceController::class, 'enhance'])->name('enhance.process');
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
