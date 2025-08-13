@@ -1,41 +1,94 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="bg-white">
-    <div class="max-w-screen-md mx-auto px-4 py-12">
-        <div class="mb-4 text-sm text-gray-600 mt-6">
-            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}" class="text-gray-500 hover:text-purple-600">← Back</a>
+<section class="bg-gradient-to-br from-purple-500 to-purple-700 min-h-screen flex flex-col items-center justify-center text-white">
+    <div class="max-w-screen-md mx-auto px-4 py-12 text-center">
+        
+        {{-- Breadcrumb --}}
+        <div class="mb-4 text-sm text-purple-200">
+            <a href="/" class="hover:text-white transition">
+                Home
+            </a>
+            <span class="mx-2">›</span>
+            <a href="#" class="hover:text-white transition">PDF Editor</a>
+            <span class="mx-2">›</span>
+            <span class="font-semibold">JPG to PDF</span>
         </div>
 
-        <h1 class="text-3xl font-bold mb-6 text-center">Upload your Images to PDF</h1>
+        {{-- Title --}}
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-2">
+            Free JPG to PDF Converter
+            <i class="bicon bicon-file-text text-white text-4xl"></i>
+        </h1>
 
-        <div class="container mx-auto">
-            <form action="{{ route('upload.handle') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
-                @csrf
+        {{-- Upload Area --}}
+        <form action="{{ route('upload.handle') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+            @csrf
 
-                {{-- Dropzone --}}
-                <label for="image-upload" class="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-6 bg-gray-200 hover:bg-gray-100 cursor-pointer transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-purple-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L4 7m3-3l3 3m4 4v8m0 0l-3-3m3 3l3-3" />
-                    </svg>
-                    <span class="text-gray-500 font-bold">Click to upload or drag & drop JPG files</span>
-                    <input id="image-upload" name="images[]" type="file" accept="image/*" multiple required class="hidden">
-                </label>
+            <label for="image-upload" 
+                class="flex flex-col items-center justify-center border-2 border-dashed border-purple-300 rounded-lg p-10 bg-purple-600/30 hover:bg-purple-600/50 cursor-pointer transition">
+                
+                <i class="bicon bicon-upload text-white text-5xl mb-4"></i>
+                <span class="text-lg font-semibold">Upload your file</span>
+                <span class="text-purple-200">or drop it here</span>
+                <input id="image-upload" name="images[]" type="file" accept="image/*" multiple required class="hidden">
+            </label>
 
-                {{-- Preview Area --}}
-                <div id="file-preview" class="text-sm text-gray-600"></div>
+            {{-- Preview Area --}}
+            <div id="file-preview" class="text-sm text-purple-200"></div>
 
-                {{-- Submit --}}
-                <div class="text-center">
-                    <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md shadow-md transition">
-                         Upload & Continue
-                    </button>
-                </div>
-            </form>
-        </div>
+            {{-- Submit Button --}}
+            <div>
+                <button type="submit" class="bg-white text-purple-700 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-purple-100 transition">
+                    Convert to PDF
+                </button>
+            </div>
+        </form>
+
+        {{-- Footer Note --}}
+        <p class="mt-8 text-purple-200 text-sm max-w-lg mx-auto">
+            Pictures and videos make for great content but don’t forget about documents like reports and records in their usual PDF files, too. 
+            Convert JPG to PDF easily with our free online converter.
+        </p>
     </div>
 </section>
+@php
+$tools = [
+    // Images Tools
+    ['label' => 'Convert PNG To JPG', 'icon' => 'bi bi-filetype-jpg', 'url' => '/en/convert-png-to-jpg'],
+    ['label' => 'Convert JPG To PNG', 'icon' => 'bi bi-filetype-png', 'url' => '/en/convert-jpg-to-png'],
+    ['label' => 'Convert JPG To PDF', 'icon' => 'bi bi-filetype-pdf', 'url' => '/en/convert-jpg-to-pdf'],
+    ['label' => 'Convert PNG To PDF', 'icon' => 'bi bi-filetype-pdf', 'url' => '/en/convert-png-to-pdf'],
+    ['label' => 'Convert PNG To WEBP', 'icon' => 'bi bi-images', 'url' => '/en/convert-png-to-webp'],
 
+    // Document Tools
+    ['label' => 'Convert Word To PDF', 'icon' => 'bi bi-file-earmark-word', 'url' => '/en/convert-word-to-pdf'],
+    ['label' => 'Convert PPT / PPTX To PDF', 'icon' => 'bi bi-filetype-ppt', 'url' => '/en/convert-ppt-to-pdf'],
+    ['label' => 'Invoice Generator', 'icon' => 'bi bi-receipt', 'url' => '/en/invoice/create'],
+
+    // QR Code Generator
+    ['label' => 'Generate QR Code for URL', 'icon' => 'bi bi-qr-code', 'url' => '/en/qrcode-generator-free'],
+    ['label' => 'Generate QR Code for Contact', 'icon' => 'bi bi-qr-code', 'url' => '/en/contact-qrcode-generator-free'],
+    ['label' => 'Generate QR Code for WiFi', 'icon' => 'bi bi-qr-code', 'url' => '/en/contact-qrcode-generator-free'],
+];
+@endphp
+<x-pdf-tools 
+    title="Discover What You Can Do" 
+    subtitle="From converting images to editing documents, explore a full suite of tools designed to make your work faster and easier."
+    :tools="$tools"
+/>
+<x-seo-section 
+    title="Change PDF to JPG files easily and for free"
+    text="Want to add tear sheets to your online portfolio? Found an amazing vintage ad you want your followers to see? Scan important items from your archive of materials and transform them hassle-free into digital-friendly content. Upload riveting content on your website that people enjoy reading and viewing in high-quality images."
+    image="/img/ilustration_1.jpg"
+/>
+
+<x-seo-section 
+    title="Access your content with editable PDF files"
+    text="Make your documents picture-perfect. Use our PDF to JPG converter to adjust your content and enhance text and images. Your PDF file becomes editable, allowing you to apply filters and design elements to achieve an aesthetic effect."
+    image="/img/ilustration_2.jpg"
+    :reverse="true"
+/>
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -44,11 +97,9 @@
 
         uploadInput.addEventListener('change', () => {
             const files = Array.from(uploadInput.files);
-            if (files.length > 0) {
-                previewContainer.innerHTML = files.map(file => `📄 ${file.name}`).join('<br>');
-            } else {
-                previewContainer.innerHTML = '';
-            }
+            previewContainer.innerHTML = files.length > 0 
+                ? files.map(file => `📄 ${file.name}`).join('<br>') 
+                : '';
         });
     });
 </script>

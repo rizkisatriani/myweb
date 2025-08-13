@@ -6,7 +6,7 @@
 <section class="bg-white">
     <div class="max-w-screen-md mx-auto px-4 py-12">
         <div class="mb-4 text-sm text-gray-600 mt-6">
-            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}" class="text-gray-500 hover:text-purple-600">← Back</a>
+            <a href="/" class="text-gray-500 hover:text-purple-600">← Back</a>
         </div>
 
         <h1 class="text-3xl font-bold mb-6">Convert Images to PDF</h1>
