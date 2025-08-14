@@ -15,108 +15,74 @@ class GenerateDailyBlogWithGemini extends Command
     protected $description = 'Generate one blog post daily using Gemini, avoiding duplicate topics';
 
     protected $tema = [
-    "Teknologi",
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Deep Learning",
-    "Neural Networks",
-    "Natural Language Processing",
-    "Computer Vision",
-    "AI Ethics",
-    "Generative AI",
-    "Prompt Engineering",
-    "Robotics",
-    "Drone Technology",
-    "Cybersecurity",
-    "Hukum Siber",
-    "Etika Digital",
-    "IoT (Internet of Things)",
-    "Smart Cities",
-    "Smart Home",
-    "Wearable Technology",
-    "Cloud Computing",
-    "Edge Computing",
-    "Quantum Computing",
-    "Big Data",
-    "Data Science",
-    "Data Engineering",
-    "Augmented Reality",
-    "Virtual Reality",
-    "Mixed Reality",
-    "Metaverse",
-    "Blockchain",
-    "Cryptocurrency",
-    "NFT",
-    "FinTech",
-    "InsurTech",
-    "HealthTech",
-    "EduTech",
-    "AgriTech",
-    "Space Tech",
-    "Green Tech",
-    "Clean Tech",
-    "Bioinformatics",
-    "3D Printing",
-    "Autonomous Vehicles",
-    "Electric Vehicles",
-    "Battery Technology",
-    "Startup Teknologi",
-    "SaaS (Software as a Service)",
-    "PaaS",
-    "DevOps",
-    "CI/CD",
-    "Open Source",
-    "Programming",
-    "Backend Development",
-    "Frontend Development",
-    "Fullstack Development",
-    "Mobile Development",
-    "Game Development",
-    "Web3",
-    "Digital Identity",
-    "Digital Wallet",
-    "Tech Startup Funding",
-    "Venture Capital",
-    "Crowdfunding Teknologi",
-    "UX Design",
-    "UI Design",
-    "Product Design",
-    "Human-Computer Interaction",
-    "Quantum Internet",
-    "Network Security",
-    "Penetration Testing",
-    "Bug Bounty",
-    "Privacy Tech",
-    "Data Privacy",
-    "Digital Forensics",
-    "Digital Transformation",
-    "Industry 4.0",
-    "5G Technology",
-    "6G Research",
-    "Smart Manufacturing",
-    "Digital Twin",
-    "Remote Work Tools",
-    "Productivity Tech",
-    "Digital Nomad Tools",
-    "Cloud Storage",
-    "Video Streaming Tech",
-    "Voice Assistant Tech",
-    "Speech Recognition",
-    "Facial Recognition",
-    "Content Moderation AI",
-    "Ethical Hacking",
-    "Serverless Architecture",
-    "Microservices",
-    "API Economy",
-    "No-Code Platforms",
-    "Low-Code Development",
-    "Digital Marketing Automation",
-    "AdTech",
-    "Recommendation Systems",
-    "Search Engine Algorithms",
-    "Digital Accessibility",
-    "Quantum Cryptography",
-    "Sustainable Tech"
+        // Tetap relevan (Teknologi Umum & AI)
+        "Teknologi",
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "Neural Networks",
+        "Natural Language Processing",
+        "Computer Vision",
+        "AI Ethics",
+        "Generative AI",
+        "Prompt Engineering",
+
+        // Tetap relevan (Hardware & IoT)
+        "Robotics",
+        "Drone Technology",
+        "Cybersecurity",
+        "Hukum Siber",
+        "Etika Digital",
+        "IoT (Internet of Things)",
+        "Smart Cities",
+        "Smart Home",
+
+        // Ganti jadi relevan ke dokumen
+        "PDF Tools",
+        "Word to PDF",
+        "JPG to PDF",
+        "Image Converter",
+        "Document Scanner",
+        "Online OCR",
+        "File Compression",
+        "PDF Merge",
+        "PDF Split",
+        "QR Code Generator",
+
+        // Tetap relevan (Cloud & Data)
+        "Cloud Computing",
+        "Edge Computing",
+        "Big Data",
+        "Data Science",
+        "Data Engineering",
+
+        // Ganti jadi relevan (File Management)
+        "File Security",
+        "Document Encryption",
+        "Digital Signature",
+        "Watermark Tools",
+        "Online Notepad",
+
+        // Tetap relevan (AR, VR, Blockchain)
+        "Augmented Reality",
+        "Virtual Reality",
+        "Blockchain",
+        "Cryptocurrency",
+
+        // Tetap relevan (Bisnis Tech)
+        "FinTech",
+        "EduTech",
+        "Startup Teknologi",
+        "SaaS (Software as a Service)",
+        "PaaS",
+
+        // Ganti jadi relevan (Tools Praktis)
+        "Image Resizer",
+        "Text to PDF",
+        "HTML to PDF",
+        "PPT to PDF",
+        "Excel to PDF",
+        "E-signature Tools"
     ];
 
     public function handle(GeminiService $gemini)
@@ -194,93 +160,116 @@ class GenerateDailyBlogWithGemini extends Command
         return 0;
     }
 
-protected function getKategoriDanGambar(string $tema): array
-{
-    return match (true) {
-        // AI & Machine Learning
-        in_array($tema, [
-            "Artificial Intelligence", "Machine Learning", "Deep Learning", "Neural Networks",
-            "Natural Language Processing", "Computer Vision", "AI Ethics", "Generative AI",
-            "Prompt Engineering", "Recommendation Systems", "Speech Recognition", "Facial Recognition",
-            "Content Moderation AI"
-        ]) =>
-        ["AI & Machine Learning", "https://toolsborg.com/img/ai.png"],
+    protected function getKategoriDanGambar(string $tema): array
+    {
+        return match (true) {
+            // AI & Machine Learning
+            in_array($tema, [
+                "Artificial Intelligence",
+                "Machine Learning",
+                "Deep Learning",
+                "Neural Networks",
+                "Natural Language Processing",
+                "Computer Vision",
+                "AI Ethics",
+                "Generative AI",
+                "Prompt Engineering"
+            ]) =>
+            ["AI & Machine Learning", "https://toolsborg.com/img/ai.png"],
 
-        // Cybersecurity & Privacy
-        in_array($tema, [
-            "Cybersecurity", "Hukum Siber", "Etika Digital", "Network Security",
-            "Penetration Testing", "Bug Bounty", "Digital Forensics", "Ethical Hacking",
-            "Privacy Tech", "Data Privacy", "Quantum Cryptography"
-        ]) =>
-        ["Cybersecurity & Privacy", "https://toolsborg.com/img/cybersecurity.png"],
+            // Cybersecurity & Privacy
+            in_array($tema, [
+                "Cybersecurity",
+                "Hukum Siber",
+                "Etika Digital",
+                "File Security",
+                "Document Encryption",
+                "Digital Signature"
+            ]) =>
+            ["Cybersecurity & Privacy", "https://toolsborg.com/img/cybersecurity.png"],
 
-        // Web & App Development
-        in_array($tema, [
-            "Programming", "Open Source", "Backend Development", "Frontend Development",
-            "Fullstack Development", "Mobile Development", "Game Development",
-            "Serverless Architecture", "Microservices", "API Economy",
-            "No-Code Platforms", "Low-Code Development"
-        ]) =>
-        ["Web & App Development", "https://toolsborg.com/img/dev.png"],
+            // Document & File Tools
+            in_array($tema, [
+                "PDF Tools",
+                "Word to PDF",
+                "JPG to PDF",
+                "Image Converter",
+                "Document Scanner",
+                "Online OCR",
+                "File Compression",
+                "PDF Merge",
+                "PDF Split",
+                "QR Code Generator",
+                "Image Resizer",
+                "Text to PDF",
+                "HTML to PDF",
+                "PPT to PDF",
+                "Excel to PDF",
+                "Online Notepad"
+            ]) =>
+            ["Document & File Tools", "https://toolsborg.com/img/document.png"],
 
-        // Blockchain & Web3
-        in_array($tema, [
-            "Blockchain", "Cryptocurrency", "NFT", "Web3", "Digital Wallet",
-            "Digital Identity"
-        ]) =>
-        ["Blockchain & Web3", "https://toolsborg.com/img/blockchain.png"],
+            // File Security & Signing
+            in_array($tema, [
+                "Watermark Tools",
+                "E-signature Tools"
+            ]) =>
+            ["File Security & Signing", "https://toolsborg.com/img/security.png"],
 
-        // Hardware & Devices
-        in_array($tema, [
-            "Robotics", "Drone Technology", "IoT (Internet of Things)", "Smart Cities",
-            "Smart Home", "Wearable Technology", "Electric Vehicles", "Autonomous Vehicles",
-            "Battery Technology", "3D Printing", "Cloud Storage", "Video Streaming Tech",
-            "Voice Assistant Tech"
-        ]) =>
-        ["Hardware & Devices", "https://toolsborg.com/img/hardware.png"],
+            // Web & App Development
+            in_array($tema, [
+                "Programming",
+                "Open Source",
+                "Backend Development",
+                "Frontend Development",
+                "Fullstack Development",
+                "Mobile Development",
+                "Game Development"
+            ]) =>
+            ["Web & App Development", "https://toolsborg.com/img/dev.png"],
 
-        // Green & Sustainable Tech
-        in_array($tema, [
-            "Green Tech", "Clean Tech", "Bioinformatics", "Sustainable Tech"
-        ]) =>
-        ["Green & Sustainable Tech", "https://toolsborg.com/img/green.png"],
+            // Blockchain & Web3
+            in_array($tema, [
+                "Blockchain",
+                "Cryptocurrency"
+            ]) =>
+            ["Blockchain & Web3", "https://toolsborg.com/img/blockchain.png"],
 
-        // Business Tech
-        in_array($tema, [
-            "FinTech", "InsurTech", "HealthTech", "EduTech", "AgriTech", "Startup Teknologi",
-            "Tech Startup Funding", "Venture Capital", "Crowdfunding Teknologi",
-            "SaaS (Software as a Service)", "PaaS", "Digital Marketing Automation", "AdTech",
-            "Digital Transformation", "Industry 4.0", "Smart Manufacturing", "Digital Twin"
-        ]) =>
-        ["Business Tech", "https://toolsborg.com/img/business.png"],
+            // Hardware & Devices
+            in_array($tema, [
+                "Robotics",
+                "Drone Technology",
+                "IoT (Internet of Things)",
+                "Smart Cities",
+                "Smart Home"
+            ]) =>
+            ["Hardware & Devices", "https://toolsborg.com/img/hardware.png"],
 
-        // Design & UX
-        in_array($tema, [
-            "UX Design", "UI Design", "Product Design", "Human-Computer Interaction",
-            "Digital Accessibility"
-        ]) =>
-        ["Design & UX", "https://toolsborg.com/img/ux.png"],
+            // Business Tech
+            in_array($tema, [
+                "FinTech",
+                "EduTech",
+                "Startup Teknologi",
+                "SaaS (Software as a Service)",
+                "PaaS"
+            ]) =>
+            ["Business Tech", "https://toolsborg.com/img/business.png"],
 
-        // Telecommunication & Networking
-        in_array($tema, [
-            "Quantum Internet", "5G Technology", "6G Research"
-        ]) =>
-        ["Telecom & Networking", "https://toolsborg.com/img/network.png"],
+            // Emerging Technologies
+            in_array($tema, [
+                "Cloud Computing",
+                "Edge Computing",
+                "Big Data",
+                "Data Science",
+                "Data Engineering"
+            ]) =>
+            ["Emerging Technologies", "https://toolsborg.com/img/emerging.png"],
 
-        // Emerging Tech
-        in_array($tema, [
-            "Quantum Computing", "Big Data", "Data Science", "Data Engineering", "Cloud Computing",
-            "Edge Computing", "Remote Work Tools", "Productivity Tech", "Digital Nomad Tools",
-            "Search Engine Algorithms"
-        ]) =>
-        ["Emerging Technologies", "https://toolsborg.com/img/emerging.png"],
-
-        // Default fallback
-        default =>
-        ["General Tech", "https://toolsborg.com/img/default.png"],
-    };
-}
-
+            // Default fallback
+            default =>
+            ["General Tech", "https://toolsborg.com/img/general.png"],
+        };
+    }
     protected function convertToHtml(string $isi, ?string $imageURL = null): string
     {
         $html = '';

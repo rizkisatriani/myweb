@@ -22,8 +22,8 @@
     <meta property="og:type" content="">
     <meta property="og:image" content=https://themesberg.s3.us-east-2.amazonaws.com/public/github/landwind/og-image.png>
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@themesberg" />
-    <meta name="twitter:creator" content="@themesberg" />
+    <meta name="twitter:site" content="Toolsborg" />
+    <meta name="twitter:creator" content="Toolsborg" />
     <meta name="google-adsense-account" content="ca-pub-9168454602694889">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
