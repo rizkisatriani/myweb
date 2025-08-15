@@ -42,20 +42,8 @@
             <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">Toolsborg <br>Tools Online Center.</h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Simplify your workday with a suite of powerful online tools — from image and document converters to enterprise-grade speed testing. Boost productivity, streamline tasks, and save time! </p>
             <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                <a href="https://www.youtube.com/@programmerninja1950" target="_blank" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                    <svg class="w-4 h-4 mr-2" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 461.00 461.00" xml:space="preserve" fill="#000000" stroke="#000000" stroke-width="0.0046100099999999995">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="1.844004" />
-
-                        <g id="SVGRepo_iconCarrier">
-                            <g>
-                                <path style="fill:#F61C0D;" d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728 c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137 C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607 c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z" />
-                            </g>
-                        </g>
-
-                    </svg>Subscribe Our Youtube
+                <a href="/en/convert-jpg-to-pdf" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-semibold text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                    <i class="bi bi-file-earmark-pdf text-purple-600 text-xl mr-2"></i> Convert in Seconds Now !
                 </a>
 
             </div>
