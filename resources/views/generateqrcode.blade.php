@@ -1,69 +1,75 @@
 @extends('layouts.app')
-
+@push('json-ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Free QR Code Generator – Toolsborg",
+  "description": "Generate QR codes for URLs, contacts, and WiFi quickly and easily on Toolsborg.",
+  "mainEntity": {
+    "@type": "Action",
+    "name": "Generate QR Code",
+    "description": "Upload your content and instantly generate a QR code."
+  }
+}
+</script>
+@endpush
 @section('title', 'Toolsborg | Homepage')
 
 @section('content')
-<section class="bg-white ">
-    <div class=" max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
-        <div class="container mx-auto">
-            <!-- Breadcrumb -->
-            <div class="text-sm text-gray-600 mb-4">
-                <a href="#" class="text-gray-500 hover:text-purple-600">Home</a> &gt;
-                <a href="#" class="text-gray-500 hover:text-purple-600">Photo Editor</a> &gt;
-                <span class="text-purple-800 font-semibold">{{$breadCrumb}}</span>
-            </div>
+<section class="min-h-screen bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center px-4">
+    <div class="max-w-3xl w-full text-center">
+        <!-- Breadcrumb -->
+        <div class="text-sm text-purple-200 mb-6">
+            <a href="#" class="hover:underline">Home</a> &gt;
+            <a href="#" class="hover:underline">Photo Editor</a> &gt;
+            <span class="font-semibold">Free QR Code Generator</span>
+        </div>
+        <!-- Tabs -->
+        <div class="flex justify-center gap-2 mb-6">
+            <a href="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" 
+               class="px-4 py-2 bg-white text-purple-700 rounded-lg font-semibold">
+               URL
+            </a>
+            <a href="{{ route('qrcode.generate_contact', ['locale' => app()->getLocale()]) }}" 
+               class="px-4 py-2 bg-purple-300 text-white rounded-lg hover:bg-purple-400">
+               Contact/VCard
+            </a>
+            <a href="{{ route('qrcode.generate_wifi', ['locale' => app()->getLocale()]) }}" 
+               class="px-4 py-2 bg-purple-300 text-white rounded-lg hover:bg-purple-400">
+               WIFI
+            </a>
+        </div>
+        <!-- Title -->
+        <h1 class="text-4xl font-bold text-white mb-6">Free URL QR Code Generator</h1>
 
-            <div class="flex space-x-2 p-2"> 
-                <a href="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 text-black rounded-lg bg-gray-900 text-white">URL</a>
-                <a href="{{ route('qrcode.generate_contact', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 bg-gray-200 text-black rounded-lg">Contact/VCard</a>
-                <a href="{{ route('qrcode.generate_wifi', ['locale' => app()->getLocale()]) }}" class="px-4 py-2 bg-gray-200 text-black rounded-lg">WIFI</a>
-            </div>
-            <!-- Main Section -->
-            <div class="relative bg-gray-100 rounded-lg p-4">
-                <!-- Background Decorations -->
-                <div class="absolute top-0 left-0 w-16 h-16 bg-red-100 rounded-full transform -translate-x-4 -translate-y-4"></div>
-                <div class="absolute bottom-0 right-0 w-20 h-20 bg-purple-300 rounded-full transform translate-x-4 translate-y-4"></div>
-                <div class="relative max-w-4xl mx-auto bg-white shadow rounded-lg p-6 flex flex-col lg:flex-col gap-6">
-                <h1 class="text-3xl font-bold">URL QR Code Generator</h1>
-                    <div class="flex flex-col lg:flex-row gap-6">
-                        <!-- Left Section - Input and Options -->
-                        <div class="w-full lg:w-1/2">
-                            <h2 class="font-semibold mb-4">Enter your text or URL</h2>
-                            <form action="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" method="POST">
-                                @csrf
-                                <input
-                                    type="text"
-                                    name="text"
-                                    placeholder="Enter your text or URL"
-                                    class="w-full p-2 border rounded-lg mb-4"
-                                    value="{{ old('text',isset($text)?$text:'') }}"
-                                    required>
-                                <!-- <div class="flex items-center gap-2 mb-4">
-                        <input type="checkbox" id="frame" name="frame" class="w-4 h-4">
-                        <label for="frame" class="text-sm pl-3">  Include frame</label>
-                    </div> -->
-                                <button type="submit" class="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800">Generate QR Code</button>
-                            </form>
-                        </div>
-
-                        <!-- Right Section - QR Code Display -->
-                        <div class="w-full lg:w-1/2 shadow flex justify-center items-center">
-                            @if($qrCode)
-                            <div class="p-4 border rounded-lg bg-gray-100 text-center flex flex-col items-center">
-                                {!! $qrCode !!}
-                                <div class="mt-4 flex gap-2">
-                                    <a href="{{ $qrCodeDownloadUrl }}" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Download JPG</a>
-                                    <a href="{{ $qrCodePrintdUrl }}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600">Print SVG/EPS</a>
-                                </div>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Input Box -->
+        <div class="bg-white bg-opacity-10 border-2 border-dashed border-white rounded-lg p-8 mb-6">
+            <form action="{{ route('qrcode.generate', ['locale' => app()->getLocale()]) }}" method="POST" class="flex flex-col items-center gap-4">
+                @csrf
+                <input
+                    type="text"
+                    name="text"
+                    placeholder="Enter your text or URL"
+                    class="w-full p-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-300"
+                    value="{{ old('text',isset($text)?$text:'') }}"
+                    required>
+                <button type="submit" class="bg-white text-purple-700 font-semibold px-6 py-2 rounded-lg shadow hover:bg-purple-100">
+                    Generate QR Code
+                </button>
+            </form>
         </div>
 
+        <!-- QR Code Display -->
+        @if($qrCode)
+        <div class="bg-white bg-opacity-10 rounded-lg p-6 flex flex-col items-center gap-4">
+            {!! $qrCode !!}
+            <div class="flex gap-3">
+                <a href="{{ $qrCodeDownloadUrl }}" class="bg-white text-purple-700 px-4 py-2 rounded-lg font-semibold hover:bg-purple-100">Download JPG</a>
+                <a href="{{ $qrCodePrintdUrl }}" class="bg-purple-300 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-400">Print SVG/EPS</a>
+            </div>
+        </div>
+        @endif
     </div>
 </section>
 @php

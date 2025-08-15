@@ -1,5 +1,19 @@
 @extends('layouts.app')
-
+@push('json-ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Convert JPG to PDF – Toolsborg",
+  "description": "Convert your JPG files to PDF quickly and easily on Toolsborg.",
+  "mainEntity": {
+    "@type": "Action",
+    "name": "Convert JPG to PDF",
+    "description": "Upload JPG images and instantly convert them to PDF."
+  }
+}
+</script>
+@endpush
 @section('content')
 <section class="bg-gradient-to-br from-purple-500 to-purple-700 min-h-screen flex flex-col items-center justify-center text-white">
     <div class="max-w-screen-md mx-auto px-4 py-12 text-center">

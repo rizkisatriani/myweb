@@ -1,5 +1,37 @@
 @extends('layouts.app')
+@push('json-ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Toolsborg",
+  "url": "https://toolsborg.com",
+  "logo": "https://toolsborg.com/logo.svg",
+  "description": "Toolsborg Tools Online Center. Simplify your workday with a suite of powerful online tools — from image and document converters to enterprise-grade speed testing. Boost productivity, streamline tasks, and save time!",
+  "sameAs": [
+    "https://web.facebook.com/profile.php?id=61579608146349",
+    "https://www.instagram.com/toolsborg",
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "admin@toolsborg.com",
+    "contactType": "customer service",
+    "areaServed": "ID",
+    "availableLanguage": ["Indonesian","English"]
+  }
+}
+</script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Toolsborg",
+  "url": "https://toolsborg.com",
+}
+</script>
+
+@endpush
 @section('title', 'Adsdigi | Homepage')
 
 @section('content')

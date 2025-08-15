@@ -8,20 +8,22 @@
     <title>Toolsborg | {{ $title }}</title>
 
     <!-- Meta SEO -->
-    <meta name="title" content="{{ $title }}">
+    <meta name="title" content="{{ $title }} | Toolsborg">
     <meta name="description" content="{{ $subtitle }}">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="author" content="Toolsborg">
 
     <!-- Social media share -->
+     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title }}">
-    <meta property="og:site_name" content=Toolsborg>
+    <meta property="og:site_name" content="Toolsborg">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:description" content="{{ $subtitle }}">
     <meta property="og:type" content="">
-    <meta property="og:image" content=https://themesberg.s3.us-east-2.amazonaws.com/public/github/landwind/og-image.png>
+    <meta property="og:image" content="https://toolsborg.com/img/ilustration_1.jpg">
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="Toolsborg" />
     <meta name="twitter:creator" content="Toolsborg" />
     <meta name="google-adsense-account" content="ca-pub-9168454602694889">
@@ -58,6 +60,7 @@
 
     gtag('config', 'G-1RKJYCN6P1');
     </script>  
+     @stack('json-ld')
 </head>     
 <body>
     @include('components.topnav') <!-- Navigasi -->

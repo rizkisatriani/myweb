@@ -1,5 +1,23 @@
 @extends('layouts.app')
-
+@push('json-ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ $blog->title }}",
+  "description": "{{ $blog->excerpt }}", 
+  "datePublished": "{{ $blog->published_at->toIso8601String() }}",
+  "dateModified": "{{ $blog->updated_at->toIso8601String() }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ url()->current() }}"
+  },
+  "image": [
+   "{{ $blog->featured_image }}"
+  ]
+}
+</script> 
+@endpush
 @section('title', $blog->title)
 
 @section('content')
