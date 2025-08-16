@@ -31,7 +31,7 @@ use Spatie\Sitemap\Tags\Url;
 */
 
 Route::get('/', function () {
-    $blogs = Blog::orderBy('published_at', 'desc')->limit(3)->get();
+    $blogs = Blog::orderBy('published_at', 'desc')->limit(4)->get();
     return view('welcome', [
         'breadCrumb' => 'Toolsborg Tools Online Center',
         'title' => 'Toolsborg Tools Online Center',

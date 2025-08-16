@@ -90,75 +90,184 @@
                         </button>
 
                         <!-- Megamenu: full width under header -->
-                        <div id="mega-tools"
-                            class="mega hidden fixed inset-x-0 top-[60px] z-50 pt-0">
+                        <div id="mega-tools" class="mega hidden fixed inset-x-0 top-[60px] z-50 pt-0">
                             <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg">
                                 <div class="max-w-screen-xl mx-auto px-4 py-8">
 
-                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-                                        <!-- Col 1 -->
+                                    <!-- 4 columns -->
+                                    <div class="relative grid grid-cols-1 sm:grid-cols-4 gap-8">
+
+                                        <!-- vertical separators (desktop) -->
+                                        <span class="hidden sm:block absolute inset-y-0 left-1/4 w-px bg-gray-200 dark:bg-gray-800"></span>
+                                        <span class="hidden sm:block absolute inset-y-0 left-2/4 w-px bg-gray-200 dark:bg-gray-800"></span>
+                                        <span class="hidden sm:block absolute inset-y-0 left-3/4 w-px bg-gray-200 dark:bg-gray-800"></span>
+
+                                        <!-- Col 1: Images Tools -->
                                         <div>
-                                            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Images Tools</h3>
-                                            <ul class="space-y-2">
-                                                <li><a href="/en/convert-png-to-jpg" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">
+                                                Images Tools
+                                            </h3>
+                                            <ul class="space-y-1">
+                                                <li>
+                                                    <a href="/en/convert-png-to-jpg"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-filetype-jpg text-gray-500 text-xl"></i>
-                                                        Convert PNG To JPG</a></li>
-                                                <li><a href="/en/convert-jpg-to-png" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert PNG To JPG
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/convert-jpg-to-png"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-filetype-png text-gray-500 text-xl"></i>
-                                                        Convert JPG To PNG</a></li>
-                                                <li><a href="/en/convert-jpg-to-pdf" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert JPG To PNG
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/convert-jpg-to-pdf"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-file-earmark-pdf text-gray-500 text-xl"></i>
-                                                        Convert JPG To PDF</a></li>
-                                                <li><a href="/en/convert-png-to-pdf" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert JPG To PDF
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/convert-png-to-pdf"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-file-earmark-pdf text-gray-500 text-xl"></i>
-                                                        Convert PNG To PDF</a></li>
-                                                <li><a href="/en/convert-png-to-webp" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert PNG To PDF
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/convert-png-to-webp"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-images text-gray-500 text-xl"></i>
-                                                        Convert PNG To WEBP</a></li>
+                                                        Convert PNG To WEBP
+                                                    </a>
+                                                </li>
                                             </ul>
+                                            <a href="/?cat=all#features"
+                                                class="mt-2 inline-flex items-center gap-1 px-3 py-1 text-sm font-medium text-indigo-600 hover:underline">
+                                                See more resources <i class="bi bi-arrow-right"></i>
+                                            </a>
                                         </div>
 
-                                        <!-- Col 2 -->
+                                        <!-- Col 2: Document Tools -->
                                         <div>
-                                            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Document Tools</h3>
-                                            <ul class="space-y-2">
-                                                <li><a href="/en/convert-word-to-pdf" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">
+                                                Document Tools
+                                            </h3>
+                                            <ul class="space-y-1">
+                                                <li>
+                                                    <a href="/en/convert-word-to-pdf"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-file-earmark-word text-gray-500 text-xl"></i>
-                                                        Convert Word To PDF</a></li>
-                                                <li><a href="/en/convert-ppt-to-pdf" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert Word To PDF
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/convert-ppt-to-pdf"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-filetype-ppt text-gray-500 text-xl"></i>
-                                                        Convert PPT / PPTX To PDF</a></li>
-                                                <li><a href="/en/pdf/merge" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Convert PPT / PPTX To PDF
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/pdf/merge"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-intersect text-gray-500 text-xl"></i>
-                                                        Merge PDF files</a></li>
-                                                <li><a href="/en/pdf/compress" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Merge PDF files
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/pdf/compress"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-file-earmark-zip text-gray-500 text-xl"></i>
-                                                        Compress PDF Files</a></li>
-                                                <li><a href="/en/invoice/create" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Compress PDF Files
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/invoice/create"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-receipt text-gray-500 text-xl"></i>
-                                                        Invoice Generator</a></li>
+                                                        Invoice Generator
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
 
-                                        <!-- Col 3 -->
+                                        <!-- Col 3: QR Code Generator -->
                                         <div>
-                                            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Qr Code Generator</h3>
-                                            <ul class="space-y-2">
-                                                <li><a href="/en/qrcode-generator-free" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                            <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">
+                                                QR Code Generator
+                                            </h3>
+                                            <ul class="space-y-1">
+                                                <li>
+                                                    <a href="/en/qrcode-generator-free"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-qr-code text-gray-500 text-xl"></i>
-                                                        Generate Qr Code for url</a></li>
-                                                <li><a href="/en/contact-qrcode-generator-free" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Generate QR Code for URL
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/contact-qrcode-generator-free"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-qr-code text-gray-500 text-xl"></i>
-                                                        Generate Qr Code for contact</a></li>
-                                                <li><a href="/en/contact-qrcode-generator-free" class="py-2 px-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center gap-2">
+                                                        Generate QR Code for Contact
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/en/contact-qrcode-generator-free"
+                                                        class="flex items-center gap-2 rounded px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">
                                                         <i class="bi bi-qr-code text-gray-500 text-xl"></i>
-                                                        Generate Qr Code for wifi</a></li>
+                                                        Generate QR Code for WiFi
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </div>
-                                    </div> <!-- grid -->
-                                </div> <!-- container -->
-                            </div> <!-- panel -->
-                        </div> <!-- mega -->
+
+                                        <!-- Col 4: Featured (image/video + CTA) -->
+                                        <div>
+                                            <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-200 dark:ring-gray-800">
+                                                <!-- badge -->
+                                                <span class="absolute right-3 top-3 z-10 rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                                                    FREE
+                                                </span>
+                                                <!-- thumbnail -->
+                                                <img src="/images/all_feature.jpg" alt="All Tools"
+                                                    class="h-32 w-full object-cover sm:h-36">
+                                                <div class="space-y-2 p-4">
+                                                    <h4 class="text-base font-semibold text-gray-900 dark:text-white">
+                                                        Explore All Tools
+                                                    </h4>
+                                                    <p class="text-sm text-gray-600 dark:text-gray-300">
+                                                        Convert, merge, and compress PDFs; transform JPG/PNG/WEBP; and generate QR codes for URL, Contact, and Wi-Fi — all in one place.
+                                                    </p>
+                                                    <a href="/?cat=all#features"
+                                                        class="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:underline">
+                                                        Browse All Tools <i class="bi bi-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> <!-- /grid -->
+
+                                    <!-- Bottom promo bar -->
+                                    <div class="mt-6 border-t border-gray-200 dark:border-gray-800 pt-3">
+                                        <div class="flex flex-col items-center justify-between gap-2 sm:flex-row">
+                                            <p class="text-sm text-gray-600 dark:text-gray-300">
+                                                Generate your document workflow in a single click.
+                                            </p>
+                                            <a href="/?cat=all#features"
+                                                class="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:underline">
+                                                Try now <i class="bi bi-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div> <!-- /container -->
+                            </div> <!-- /panel -->
+                        </div>
+                        <!-- mega -->
                     </li>
 
                     <li>
@@ -174,48 +283,48 @@
 </header>
 
 <script>
-    // Mobile toggle
-    // (function() {
-    //     const btn = document.getElementById('nav-toggle');
-    //     const menu = document.getElementById('primary-menu');
-    //     if (!btn || !menu) return;
+    Mobile toggle
+    (function() {
+        const btn = document.getElementById('nav-toggle');
+        const menu = document.getElementById('primary-menu');
+        if (!btn || !menu) return;
 
-    //     btn.addEventListener('click', () => {
-    //         const open = menu.classList.toggle('hidden') === false;
-    //         btn.setAttribute('aria-expanded', String(open));
-    //     });
+        btn.addEventListener('click', () => {
+            const open = menu.classList.toggle('hidden') === false;
+            btn.setAttribute('aria-expanded', String(open));
+        });
 
-    //     // Close on outside click (mobile and desktop)
-    //     document.addEventListener('click', (e) => {
-    //         const within = menu.contains(e.target) || btn.contains(e.target);
-    //         if (!within && !menu.classList.contains('hidden') && window.innerWidth < 1024) {
-    //             menu.classList.add('hidden');
-    //             btn.setAttribute('aria-expanded', 'false');
-    //         }
-    //     });
+        // Close on outside click (mobile and desktop)
+        document.addEventListener('click', (e) => {
+            const within = menu.contains(e.target) || btn.contains(e.target);
+            if (!within && !menu.classList.contains('hidden') && window.innerWidth < 1024) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
 
-    //     // ESC to close any open mega menu
-    //     document.addEventListener('keydown', (e) => {
-    //         if (e.key === 'Escape') {
-    //             // close megamenu by blurring focused element
-    //             const focused = document.activeElement;
-    //             if (focused) focused.blur();
-    //         }
-    //     });
+        // ESC to close any open mega menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // close megamenu by blurring focused element
+                const focused = document.activeElement;
+                if (focused) focused.blur();
+            }
+        });
 
-    //     // Megamenu button ARIA toggle (desktop focus/hover)
-    //     const megaBtn = document.querySelector('.has-mega > button');
-    //     const megaPanel = document.getElementById('mega-tools');
-    //     if (megaBtn && megaPanel) {
-    //         function setExpanded(expanded) {
-    //             megaBtn.setAttribute('aria-expanded', String(expanded));
-    //         }
-    //         megaBtn.addEventListener('focus', () => setExpanded(true));
-    //         megaBtn.addEventListener('blur', () => setExpanded(false));
-    //         megaBtn.addEventListener('mouseenter', () => setExpanded(true));
-    //         megaBtn.addEventListener('mouseleave', () => setExpanded(false));
-    //         megaPanel.addEventListener('mouseenter', () => setExpanded(true));
-    //         megaPanel.addEventListener('mouseleave', () => setExpanded(false));
-    //     }
-    // })();
+        // Megamenu button ARIA toggle (desktop focus/hover)
+        const megaBtn = document.querySelector('.has-mega > button');
+        const megaPanel = document.getElementById('mega-tools');
+        if (megaBtn && megaPanel) {
+            function setExpanded(expanded) {
+                megaBtn.setAttribute('aria-expanded', String(expanded));
+            }
+            megaBtn.addEventListener('focus', () => setExpanded(true));
+            megaBtn.addEventListener('blur', () => setExpanded(false));
+            megaBtn.addEventListener('mouseenter', () => setExpanded(true));
+            megaBtn.addEventListener('mouseleave', () => setExpanded(false));
+            megaPanel.addEventListener('mouseenter', () => setExpanded(true));
+            megaPanel.addEventListener('mouseleave', () => setExpanded(false));
+        }
+    })();
 </script>
