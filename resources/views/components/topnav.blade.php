@@ -57,11 +57,11 @@
                                             </li>
                                             <li>
                                                 <a href="/en/convert-jpg-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
-                                                    <i class="bi bi-filetype-pdf text-gray-500 text-xl"></i>Convert JPG To PDF</a>
+                                                    <i class="bi bi-file-earmark-pdf text-gray-500 text-xl"></i>Convert JPG To PDF</a>
                                             </li>
                                             <li>
                                                 <a href="/en/convert-png-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
-                                                    <i class="bi bi-filetype-pdf text-gray-500 text-xl"></i>Convert PNG To PDF</a>
+                                                    <i class="bi bi-file-earmark-pdf text-gray-500 text-xl"></i>Convert PNG To PDF</a>
                                             </li>
                                             <li>
                                                 <a href="/en/convert-png-to-webp" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
@@ -80,6 +80,10 @@
                                             <li>
                                                 <a href="/en/convert-ppt-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
                                                     <i class="bi bi-filetype-ppt text-gray-500 text-xl"></i>Convert PPT / PPTX To PDF</a>
+                                            </li>
+                                            <li>
+                                                <a href="/en/convert-ppt-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                    <i class="bi bi-intersect text-gray-500 text-xl"></i>Merge PDF files</a>
                                             </li>
                                             <li>
                                                 <a href="/en/invoice/create" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">

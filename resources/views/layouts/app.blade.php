@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.ico" sizes="any">
 
- <link rel="icon" type="image/png" sizes="32x32" href="/logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.svg">
     <link rel="icon" type="image/png" sizes="16x16" href="/logo.svg">
     <meta name="theme-color" content="#6A0DAD">
     <link rel="manifest" href="/site.webmanifest">
@@ -73,8 +73,9 @@
     @include('components.topnav') <!-- Navigasi -->
 
     @yield('content') <!-- Tempat konten utama -->
-
+    @empty($noFooter)
     @include('components.footer') <!-- Footer -->
+    @endempty
     <!-- Cookie Consent Banner -->
     <div id="cookie-consent"
         class="fixed inset-0 bg-black bg-opacity-40 flex justify-center z-50 transition-opacity duration-300 items-end pb-8 mb-8 hidden">

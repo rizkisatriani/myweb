@@ -8,6 +8,7 @@ use App\Http\Controllers\DocConvertController;
 use App\Http\Controllers\ImageEnhanceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JpgToPdfController;
+use App\Http\Controllers\PdfMergeController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\SitemapController;
 use App\Models\Blog;
@@ -265,7 +266,7 @@ Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|id']], functio
 
         $vCard .= "END:VCARD";
 
-        $qrCode = QrCode::size(200)->generate($vCard); 
+        $qrCode = QrCode::size(200)->generate($vCard);
         return view('generateqrcodeforcontact', [
             'breadCrumb' => 'Generate Contact QR Code',
             'title' => 'Generate Contact QR Code for Free',
@@ -389,3 +390,13 @@ Route::get('/print-qrcode', function (Request $request) {
         'qrCode' => $qrCode
     ]);
 });
+Route::get('/pdf/merge', [PdfMergeController::class, 'formUpload'])->name('pdf.merge.form');               // Halaman upload
+Route::post('/pdf/merge/upload', [PdfMergeController::class, 'handleUpload'])->name('pdf.merge.upload');   // Terima upload
+Route::get('/pdf/merge/edit/{bucket}', [PdfMergeController::class, 'showEdit'])->name('pdf.merge.edit');   // Halaman edit
+Route::post('/pdf/merge/remove', [PdfMergeController::class, 'handleRemove'])->name('pdf.merge.remove');     // Hapus file dari bucket
+Route::post('/pdf/merge/do', [PdfMergeController::class, 'merge'])->name('pdf.merge.do');
+Route::get('/pdf/merge/file/{bucket}/{file}', [PdfMergeController::class, 'file'])
+    ->name('pdf.merge.file')
+    ->middleware('signed');
+Route::post('/pdf/merge/upload-more', [PdfMergeController::class, 'uploadMore'])
+    ->name('pdf.merge.upload_more');
