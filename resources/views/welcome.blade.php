@@ -298,15 +298,15 @@ $tools = [
     image="/img/ilustration_2.jpg"
     :reverse="true"
 />
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white">
   <div class="py-20 sm:py-28">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       {{-- Heading --}}
       <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+        <h2 class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
           Explore Our Latest Insights
         </h2>
-        <p class="mt-3 text-lg text-gray-600 dark:text-gray-300">
+        <p class="mt-3 text-lg text-gray-600">
           Dive into tips, stories, and guides curated by our team.
         </p>
       </div>
@@ -320,7 +320,7 @@ $tools = [
       {{-- FEATURED CARD (image left, text right) --}}
       <article
         onclick="window.location='{{ route('blogs.show', $featured->slug) }}'"
-        class="mt-12 grid cursor-pointer overflow-hidden rounded-3xl bg-gray-50 ring-1 ring-gray-200 transition hover:shadow-xl dark:bg-gray-800/60 dark:ring-white/10 lg:grid-cols-2"
+        class="mt-12 grid cursor-pointer overflow-hidden rounded-3xl bg-gray-50 ring-1 ring-gray-200 transition hover:shadow-xl lg:grid-cols-2"
       >
         {{-- left image --}}
         <div class="relative">
@@ -331,7 +331,7 @@ $tools = [
               class="h-full w-full object-cover"
             >
           @else
-            <div class="aspect-[16/10] h-full w-full bg-gray-200 dark:bg-gray-700"></div>
+            <div class="aspect-[16/10] h-full w-full bg-gray-200"></div>
           @endif
           {{-- rounded corner mask on large screens --}}
           <div class="pointer-events-none absolute inset-0 rounded-3xl lg:rounded-r-none"></div>
@@ -341,27 +341,27 @@ $tools = [
         <div class="flex flex-col justify-between p-8 sm:p-10">
           <div>
             <div class="flex items-center gap-3 text-xs">
-              <time class="text-gray-500 dark:text-gray-400">
+              <time class="text-gray-500">
                 {{ optional($featured->published_at)->format('F j, Y') }}
               </time>
               @if($featured->featured_image)
-                <span class="capitalize rounded-full bg-emerald-50 px-3 py-1.5 font-medium text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-500/10 dark:text-emerald-300 dark:ring-emerald-500/20">
+                <span class="capitalize rounded-full bg-emerald-50 px-3 py-1.5 font-medium text-emerald-700 ring-1 ring-emerald-200">
                   {{ pathinfo($featured->featured_image, PATHINFO_FILENAME) }}
                 </span>
               @endif
             </div>
 
-            <h3 class="mt-4 text-2xl font-semibold leading-snug text-gray-900 transition group-hover:text-gray-700 dark:text-white">
+            <h3 class="mt-4 text-2xl font-semibold leading-snug text-gray-900 transition group-hover:text-gray-700">
               {{ $featured->title }}
             </h3>
-            <p class="mt-3 line-clamp-3 text-gray-600 dark:text-gray-300">
+            <p class="mt-3 line-clamp-3 text-gray-600">
               {{ Str::limit(strip_tags($featured->excerpt), 160) }}
             </p>
           </div>
 
           <div class="mt-6 flex items-center gap-3">
             <a href="{{ route('blogs.show', $featured->slug) }}"
-               class="inline-flex items-center rounded-xl bg-gray-900 px-4 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200">
+               class="inline-flex items-center rounded-xl bg-gray-900 px-4 py-2 text-white hover:bg-gray-800">
               Read Article
               <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -378,7 +378,7 @@ $tools = [
         @foreach ($others as $blog)
           <article
             onclick="window.location='{{ route('blogs.show', $blog->slug) }}'"
-            class="group cursor-pointer overflow-hidden rounded-2xl ring-1 ring-gray-200 transition hover:shadow-lg dark:ring-white/10"
+            class="group cursor-pointer overflow-hidden rounded-2xl ring-1 ring-gray-200 transition hover:shadow-lg"
           >
             {{-- image --}}
             @if ($blog->featured_image)
@@ -389,21 +389,21 @@ $tools = [
                 </span>
               </div>
             @else
-              <div class="h-56 w-full bg-gray-200 dark:bg-gray-700"></div>
+              <div class="h-56 w-full bg-gray-200"></div>
             @endif
 
             {{-- text --}}
-            <div class="p-5 bg-white dark:bg-gray-900">
-              <time class="text-xs text-gray-500 dark:text-gray-400">
+            <div class="p-5 bg-white">
+              <time class="text-xs text-gray-500">
                 {{ optional($blog->published_at)->format('F j, Y') }}
               </time>
-              <h3 class="mt-2 text-base font-semibold text-gray-900 transition group-hover:text-gray-700 dark:text-white">
+              <h3 class="mt-2 text-base font-semibold text-gray-900 transition group-hover:text-gray-700">
                 {{ $blog->title }}
               </h3>
-              <p class="mt-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">
+              <p class="mt-2 line-clamp-2 text-sm text-gray-600">
                 {{ Str::limit(strip_tags($blog->excerpt), 100) }}
               </p>
-              <div class="mt-4 flex items-center text-sm font-medium text-emerald-600 group-hover:underline dark:text-emerald-400">
+              <div class="mt-4 flex items-center text-sm font-medium text-emerald-600 group-hover:underline">
                 Read more
                 <svg class="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
