@@ -90,7 +90,7 @@
                         </button>
 
                         <!-- Megamenu: full width under header -->
-                        <div id="mega-tools" class="mega hidden fixed inset-x-0 top-[60px] z-50 pt-0">
+                        <div id="mega-tools" class="mega hidden lg:fixed lg:inset-x-0 lg:top-[60px] z-50 pt-0">
                             <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 shadow-lg">
                                 <div class="max-w-screen-xl mx-auto px-4 py-8">
 
@@ -283,48 +283,68 @@
 </header>
 
 <script>
-    Mobile toggle
-    (function() {
-        const btn = document.getElementById('nav-toggle');
-        const menu = document.getElementById('primary-menu');
-        if (!btn || !menu) return;
+(function () {
+  const btn = document.getElementById('nav-toggle');
+  const menu = document.getElementById('primary-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const shown = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(shown));
+    });
 
-        btn.addEventListener('click', () => {
-            const open = menu.classList.toggle('hidden') === false;
-            btn.setAttribute('aria-expanded', String(open));
-        });
+    // Close on outside click (mobile)
+    document.addEventListener('click', (e) => {
+      const inside = menu.contains(e.target) || btn.contains(e.target);
+      if (!inside && !menu.classList.contains('hidden') && window.innerWidth < 1024) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
-        // Close on outside click (mobile and desktop)
-        document.addEventListener('click', (e) => {
-            const within = menu.contains(e.target) || btn.contains(e.target);
-            if (!within && !menu.classList.contains('hidden') && window.innerWidth < 1024) {
-                menu.classList.add('hidden');
-                btn.setAttribute('aria-expanded', 'false');
-            }
-        });
+  // Mega menu
+  const megaBtn = document.querySelector('.has-mega > button');
+  const megaPanel = document.getElementById('mega-tools');
 
-        // ESC to close any open mega menu
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                // close megamenu by blurring focused element
-                const focused = document.activeElement;
-                if (focused) focused.blur();
-            }
-        });
+  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
 
-        // Megamenu button ARIA toggle (desktop focus/hover)
-        const megaBtn = document.querySelector('.has-mega > button');
-        const megaPanel = document.getElementById('mega-tools');
-        if (megaBtn && megaPanel) {
-            function setExpanded(expanded) {
-                megaBtn.setAttribute('aria-expanded', String(expanded));
-            }
-            megaBtn.addEventListener('focus', () => setExpanded(true));
-            megaBtn.addEventListener('blur', () => setExpanded(false));
-            megaBtn.addEventListener('mouseenter', () => setExpanded(true));
-            megaBtn.addEventListener('mouseleave', () => setExpanded(false));
-            megaPanel.addEventListener('mouseenter', () => setExpanded(true));
-            megaPanel.addEventListener('mouseleave', () => setExpanded(false));
+  if (megaBtn && megaPanel) {
+    // Hover/focus hanya untuk desktop
+    ['mouseenter','focus'].forEach(ev => {
+      megaBtn.addEventListener(ev, () => { if (isDesktop()) megaBtn.setAttribute('aria-expanded','true'); });
+    });
+    ['mouseleave','blur'].forEach(ev => {
+      megaBtn.addEventListener(ev, () => { if (isDesktop()) megaBtn.setAttribute('aria-expanded','false'); });
+    });
+    ['mouseenter','mouseleave'].forEach(ev => {
+      megaPanel.addEventListener(ev, () => { if (isDesktop()) megaBtn.setAttribute('aria-expanded', String(ev==='mouseenter')); });
+    });
+
+    // CLICK toggle untuk mobile
+    megaBtn.addEventListener('click', (e) => {
+      if (!isDesktop()) {
+        e.preventDefault();
+        const hidden = megaPanel.classList.toggle('hidden');
+        megaBtn.setAttribute('aria-expanded', String(!hidden));
+      }
+    });
+
+    // Tutup panel mega saat klik di luar (mobile)
+    document.addEventListener('click', (e) => {
+      if (!isDesktop() && !megaPanel.classList.contains('hidden')) {
+        const inside = megaPanel.contains(e.target) || megaBtn.contains(e.target);
+        if (!inside) {
+          megaPanel.classList.add('hidden');
+          megaBtn.setAttribute('aria-expanded','false');
         }
-    })();
+      }
+    });
+  }
+
+  // Set CSS var tinggi header untuk posisi panel di desktop
+  const header = document.querySelector('header');
+  if (header) {
+    document.documentElement.style.setProperty('--header-bottom', header.offsetHeight + 'px');
+  }
+})();
 </script>
