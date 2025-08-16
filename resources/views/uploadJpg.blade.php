@@ -1,19 +1,44 @@
 @extends('layouts.app')
 @push('json-ld')
+@php
+  $ld = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'WebPage',
+    'name'        => 'Convert JPG to PDF — Toolsborg',
+    'description' => 'Convert your JPG images to a single PDF quickly and safely on Toolsborg.',
+    'url'         => url()->current(),
+    'isAccessibleForFree' => true,
+    'mainEntity'  => [
+      '@type'        => 'Action',
+      'name'         => 'Convert JPG to PDF',
+      'description'  => 'Upload one or more JPG images and convert them into a PDF file.',
+      'actionStatus' => 'PotentialActionStatus',
+      'target'       => [
+        '@type'          => 'EntryPoint',
+        'urlTemplate'    => "{{ route('jpg2pdf.form') }}", // ganti sesuai nama route form kamu
+        'inLanguage'     => 'id-ID',
+        'actionPlatform' => [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      ],
+      'object' => [
+        '@type'          => 'ImageObject',
+        'encodingFormat' => ['image/jpeg','image/jpg']
+      ],
+      'result' => [
+        '@type'          => 'MediaObject',
+        'name'           => 'PDF document',
+        'encodingFormat' => 'application/pdf'
+      ]
+    ]
+  ];
+@endphp
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Convert JPG to PDF – Toolsborg",
-  "description": "Convert your JPG files to PDF quickly and easily on Toolsborg.",
-  "mainEntity": {
-    "@type": "Action",
-    "name": "Convert JPG to PDF",
-    "description": "Upload JPG images and instantly convert them to PDF."
-  }
-}
+{!! json_encode($ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endpush
+
 @section('content')
 <section class="bg-gradient-to-br from-purple-500 to-purple-700 min-h-screen flex flex-col items-center justify-center text-white">
     <div class="max-w-screen-md mx-auto px-4 py-12 text-center">

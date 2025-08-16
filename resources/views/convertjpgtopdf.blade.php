@@ -3,26 +3,26 @@
 @section('title', 'Toolsborg | Homepage')
 
 @section('content')
-<section class="bg-gradient-to-br from-purple-500 to-purple-700 min-h-screen flex items-center justify-center px-6">
+<section class="bg-gradient-to-br from-blue-500 to-blue-700 min-h-screen flex items-center justify-center px-6">
   <div class="max-w-3xl w-full text-center text-white">
 
     <!-- Title & Subtitle -->
     <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
       {{ $title ?? 'Free JPG to PDF Converter' }}
     </h1>
-    <p class="text-purple-100 mb-8">
+    <p class="text-blue-100 mb-8">
       {{ $subtitle ?? "Pictures and videos make for great content, but don’t forget about documents like reports and records in their usual PDF files, too. Convert JPG to PDF easily with our free online converter." }}
     </p>
 
     <!-- Dropzone -->
     <div id="dropZoneArea"
-         class="border-2 border-dashed border-purple-300 rounded-2xl p-10 bg-white/10 hover:bg-white/15 transition
+         class="border-2 border-dashed border-blue-300 rounded-2xl p-10 bg-white/10 hover:bg-white/15 transition
                 flex flex-col items-center justify-center">
       <label id="selectFile" for="file-upload" class="cursor-pointer font-semibold flex flex-col">
       <i class="bi bi-cloud-arrow-up text-5xl mb-4"></i>
         Upload your file
       </label>
-      <span class="text-purple-200 text-sm">or drag & drop it here</span>
+      <span class="text-blue-200 text-sm">or drag & drop it here</span>
     </div>
 
     <!-- Preview -->
@@ -36,8 +36,8 @@
       @csrf
       <input type="file" name="image" id="file-upload" class="hidden" required />
       <button id="convert-button"
-              class="cursor-pointer inline-flex items-center px-6 py-3 bg-white text-purple-700 text-lg font-semibold
-                     rounded-lg shadow-lg hover:bg-purple-100 focus:outline-none focus:ring-2 focus:ring-white"
+              class="cursor-pointer inline-flex items-center px-6 py-3 bg-white text-blue-700 text-lg font-semibold
+                     rounded-lg shadow-lg hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-white"
               type="submit" style="display:none;">
         Convert File Now
       </button>

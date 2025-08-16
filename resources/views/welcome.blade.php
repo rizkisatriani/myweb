@@ -1,37 +1,51 @@
 @extends('layouts.app')
 @push('json-ld')
+@php
+  // Organization
+  $orgLd = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'Organization',
+    'name'        => 'Toolsborg',
+    'url'         => url('/'),
+    'logo'        => url('/logo.svg'),
+    'description' => 'Toolsborg Tools Online Center. Simplify your workday with a suite of powerful online tools — from image and document converters to enterprise-grade speed testing. Boost productivity, streamline tasks, and save time!',
+    'sameAs'      => [
+      'https://web.facebook.com/profile.php?id=61579608146349',
+      'https://www.instagram.com/toolsborg'
+    ],
+    'contactPoint' => [
+      '@type'             => 'ContactPoint',
+      'email'             => 'admin@toolsborg.com',
+      'contactType'       => 'customer service',
+      'areaServed'        => 'ID',
+      'availableLanguage' => ['Indonesian','English'],
+    ],
+  ];
+
+  // WebSite (+ SearchAction opsional)
+  $siteLd = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'WebSite',
+    'name'     => 'Toolsborg',
+    'url'      => url('/'),
+    // Hapus blok ini jika tidak ada halaman pencarian
+    'potentialAction' => [
+      '@type'       => 'SearchAction',
+      'target'      => url('/search') . '?q={search_term_string}',
+      'query-input' => 'required name=search_term_string',
+    ],
+  ];
+@endphp
+
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Toolsborg",
-  "url": "https://toolsborg.com",
-  "logo": "https://toolsborg.com/logo.svg",
-  "description": "Toolsborg Tools Online Center. Simplify your workday with a suite of powerful online tools — from image and document converters to enterprise-grade speed testing. Boost productivity, streamline tasks, and save time!",
-  "sameAs": [
-    "https://web.facebook.com/profile.php?id=61579608146349",
-    "https://www.instagram.com/toolsborg",
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "admin@toolsborg.com",
-    "contactType": "customer service",
-    "areaServed": "ID",
-    "availableLanguage": ["Indonesian","English"]
-  }
-}
+{!! json_encode($orgLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Toolsborg",
-  "url": "https://toolsborg.com",
-}
+{!! json_encode($siteLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
-
 @endpush
+
 @section('title', 'Adsdigi | Homepage')
 
 @section('content')

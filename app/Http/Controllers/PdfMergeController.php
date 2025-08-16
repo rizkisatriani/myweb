@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use setasign\Fpdi\Fpdi;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Validation\ValidationException;
 
 class PdfMergeController extends Controller
 {
@@ -67,7 +68,7 @@ class PdfMergeController extends Controller
                 ];
             })
             ->all();
-            
+
         return view('merge-edit', [
             'bucket' => $bucket,
             'files'  => $files,
@@ -161,13 +162,21 @@ class PdfMergeController extends Controller
             'Cache-Control' => 'private, max-age=1800', // 30 menit
         ]);
     }
-       public function uploadMore(Request $request)
+    public function uploadMore(Request $request)
     {
-        $request->validate([
-            'bucket'    => ['required','string'],
-            'files'     => ['required','array','min:1'],
-            'files.*'   => ['file','mimetypes:application/pdf','max:20480'],
-        ]);
+        try {
+            $validated = $request->validate([
+                'bucket'  => ['required', 'string'],
+                'files'   => ['required', 'array', 'min:1'],
+                'files.*' => ['file', 'mimetypes:application/pdf', 'max:50480'], // 50,480 KB ≈ 49.3 MB
+            ]);
+
+            // ... proses upload
+
+            return response()->json(['ok' => true]);
+        } catch (ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 422);
+        }
 
         $bucket   = $request->input('bucket');
         $basePath = "tmp/pdf-merge/{$bucket}";
@@ -193,5 +202,5 @@ class PdfMergeController extends Controller
         }
 
         return response()->json(['ok' => true, 'items' => $added]);
-    } 
+    }
 }

@@ -1,19 +1,40 @@
 @extends('layouts.app')
 @push('json-ld')
+@php
+  $ld = [
+    '@context' => 'https://schema.org',
+    '@type'    => 'WebPage',
+    'name'        => 'Free QR Code Generator — Toolsborg',
+    'description' => 'Create free QR codes for URL, text, Wi-Fi, contact (vCard), and more. Download PNG or SVG instantly.',
+    'url'         => url()->current(),
+    'isAccessibleForFree' => true,
+    'mainEntity'  => [
+      '@type'        => 'Action',
+      'name'         => 'Generate QR Code',
+      'description'  => 'Enter content (URL, text, Wi-Fi, vCard) and generate a QR code image.',
+      'actionStatus' => 'PotentialActionStatus',
+      'target'       => [
+        '@type'          => 'EntryPoint',
+        'urlTemplate'    => "{{ route('qr.generate.form') }}",
+        'inLanguage'     => 'id-ID',
+        'actionPlatform' => [
+          'http://schema.org/DesktopWebPlatform',
+          'http://schema.org/MobileWebPlatform'
+        ]
+      ],
+      'result' => [
+        '@type'          => 'ImageObject',
+        'name'           => 'QR Code',
+        'encodingFormat' => ['image/png', 'image/svg+xml']
+      ]
+    ]
+  ];
+@endphp
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Free QR Code Generator – Toolsborg",
-  "description": "Generate QR codes for URLs, contacts, and WiFi quickly and easily on Toolsborg.",
-  "mainEntity": {
-    "@type": "Action",
-    "name": "Generate QR Code",
-    "description": "Upload your content and instantly generate a QR code."
-  }
-}
+{!! json_encode($ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
 </script>
 @endpush
+
 @section('title', 'Toolsborg | Homepage')
 
 @section('content')

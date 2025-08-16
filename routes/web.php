@@ -8,6 +8,7 @@ use App\Http\Controllers\DocConvertController;
 use App\Http\Controllers\ImageEnhanceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JpgToPdfController;
+use App\Http\Controllers\PdfCompressImageController;
 use App\Http\Controllers\PdfMergeController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\SitemapController;
@@ -390,7 +391,7 @@ Route::get('/print-qrcode', function (Request $request) {
         'qrCode' => $qrCode
     ]);
 });
-Route::get('/pdf/merge', [PdfMergeController::class, 'formUpload'])->name('pdf.merge.form');               // Halaman upload
+Route::get('/en/pdf/merge', [PdfMergeController::class, 'formUpload'])->name('pdf.merge.form');               // Halaman upload
 Route::post('/pdf/merge/upload', [PdfMergeController::class, 'handleUpload'])->name('pdf.merge.upload');   // Terima upload
 Route::get('/pdf/merge/edit/{bucket}', [PdfMergeController::class, 'showEdit'])->name('pdf.merge.edit');   // Halaman edit
 Route::post('/pdf/merge/remove', [PdfMergeController::class, 'handleRemove'])->name('pdf.merge.remove');     // Hapus file dari bucket
@@ -400,3 +401,14 @@ Route::get('/pdf/merge/file/{bucket}/{file}', [PdfMergeController::class, 'file'
     ->middleware('signed');
 Route::post('/pdf/merge/upload-more', [PdfMergeController::class, 'uploadMore'])
     ->name('pdf.merge.upload_more');
+
+Route::get('/en/pdf/compress', [PdfCompressImageController::class, 'form'])
+    ->name('pdf.compress.form');
+
+Route::post('/pdf/compress', [PdfCompressImageController::class, 'upload'])
+    ->name('pdf.compress.upload');
+
+Route::get('/en/pdf/compress-image', [PdfCompressImageController::class, 'index'])
+    ->name('pdf.compress.edit');
+Route::post('/pdf/compress-image', [PdfCompressImageController::class, 'compress'])
+    ->name('pdf.compress.run');

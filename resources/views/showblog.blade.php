@@ -1,22 +1,66 @@
 @extends('layouts.app')
 @push('json-ld')
+@php
+    // Kumpulkan gambar (featured + galeri jika ada)
+    $images = array_values(array_filter(array_merge(
+        [ $blog->featured_image ?? null ],
+        is_array($blog->gallery_images ?? null) ? ($blog->gallery_images ?? []) : []
+    )));
+
+    // Author & publisher
+    $authorName = $blog->author->name ?? $blog->author_name ?? 'Toolsborg Editorial';
+    $authorUrl  = $blog->author->profile_url ?? null;
+    $publisherName = config('app.name', 'Toolsborg');
+    $publisherLogo = asset('logo.svg');
+
+    // Tags & kategori (opsional)
+    $tags       = method_exists($blog, 'tags')       ? ($blog->tags->pluck('name')->all() ?? [])       : [];
+    $categories = method_exists($blog, 'categories') ? ($blog->categories->pluck('name')->all() ?? []) : [];
+
+    // Body disingkat (agar JSON-LD tidak terlalu panjang)
+    $plainBody = isset($blog->body) ? strip_tags($blog->body) : null;
+    if ($plainBody && mb_strlen($plainBody) > 5000) {
+        $plainBody = mb_substr($plainBody, 0, 5000);
+    }
+    $wordCount = $plainBody ? str_word_count($plainBody) : null;
+
+    $ld = [
+        '@context'        => 'https://schema.org',
+        '@type'           => 'BlogPosting',
+        'headline'        => $blog->title,
+        'description'     => $blog->excerpt ?? \Illuminate\Support\Str::limit($plainBody ?? '', 160),
+        'mainEntityOfPage'=> ['@type' => 'WebPage', '@id' => url()->current()],
+        'url'             => url()->current(),
+        'image'           => $images ?: [asset('images/og-default.jpg')], // fallback opsional
+        'datePublished'   => optional($blog->published_at)->toIso8601String(),
+        'dateModified'    => optional($blog->updated_at)->toIso8601String(),
+        'inLanguage'      => app()->getLocale() ?? 'id-ID',
+        'isAccessibleForFree' => true,
+        'author'          => array_filter([
+            '@type' => 'Person',
+            'name'  => $authorName,
+            'url'   => $authorUrl,
+        ]),
+        'publisher'       => [
+            '@type' => 'Organization',
+            'name'  => $publisherName,
+            'logo'  => [
+                '@type' => 'ImageObject',
+                'url'   => $publisherLogo,
+            ],
+        ],
+        'keywords'        => $tags ? implode(', ', $tags) : null,
+        'articleSection'  => $categories ? implode(', ', $categories) : null,
+        'articleBody'     => $plainBody,
+        'wordCount'       => $wordCount,
+    ];
+
+    // Hapus field null/kosong
+    $ld = array_filter($ld, fn($v) => !is_null($v) && $v !== '');
+@endphp
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ $blog->title }}",
-  "description": "{{ $blog->excerpt }}", 
-  "datePublished": "{{ $blog->published_at->toIso8601String() }}",
-  "dateModified": "{{ $blog->updated_at->toIso8601String() }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ url()->current() }}"
-  },
-  "image": [
-   "{{ $blog->featured_image }}"
-  ]
-}
-</script> 
+{!! json_encode($ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+</script>
 @endpush
 @section('title', $blog->title)
 
