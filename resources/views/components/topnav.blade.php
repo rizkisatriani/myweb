@@ -82,7 +82,7 @@
                                                     <i class="bi bi-filetype-ppt text-gray-500 text-xl"></i>Convert PPT / PPTX To PDF</a>
                                             </li>
                                             <li>
-                                                <a href="/en/convert-ppt-to-pdf" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
+                                                <a href="/pdf/merge" class="py-2 px-4 text-gray-700 hover:bg-gray-100 flex items-center gap-2">
                                                     <i class="bi bi-intersect text-gray-500 text-xl"></i>Merge PDF files</a>
                                             </li>
                                             <li>
